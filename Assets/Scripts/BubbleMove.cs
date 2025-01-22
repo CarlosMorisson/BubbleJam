@@ -1,55 +1,137 @@
 using UnityEngine;
-using DG.Tweening;
 
 public class BubbleMovement : MonoBehaviour
 {
-    public GameObject[] bubbles;  // Array to store the bubbles
-    public float speed = 5f;      // Movement speed
-    public float spacing = 0.1f;  // Space between bubbles in the horde
+    private Transform bubblesParent;
+    private GameObject[] bubbles; // Array de bolhas
+    [Header("Position Parameters")] 
+    [SerializeField] private Vector2 randomRangeX = new Vector2(-5f, 5f); // Intervalo aleatório no eixo X
+    [SerializeField] private float yDistance = 2f; // Distância fixa no eixo Y entre as bolhas
 
-    private bool isMousePressed = false;
+    [Header("Bubble Parameters")]
+    [SerializeField] [Range(0, 10)] private float baseSpeed = 5f; // Velocidade base
+    [SerializeField] [Range(0, 10)] private float followRadius = 2f; // Raio de detecção de vizinhos
+    [SerializeField] [Range(0, 10)] private float separationWeight = 2f; // Peso da separação
+    [SerializeField] [Range(0, 10)] private float avoidanceRadius = 1f; // Peso da coesão
+    [SerializeField] [Range(0, 10)] private float mouseAttractionWeight = 2f; // Peso da atração ao mouse
+    [SerializeField] [Range(0, 10)] private float maxForce = 0.5f; // Força máxima
+    [SerializeField] [Range(0, 1)] private float minDistance = 0.5f; // Distância mínima para evitar sobreposição
+    [SerializeField] [Range(0, 5)] private float speedTolerance;
+
+    private Camera mainCamera;
 
     private void Start()
     {
-        for (int i = 0; i < bubbles.Length; i++)
+        // Encontrar o pai das bolhas e inicializar o array
+        bubblesParent = GameObject.FindGameObjectWithTag("BubbleParent").transform;
+        mainCamera = Camera.main;
+
+        if (bubblesParent != null)
         {
-            bubbles[i].transform.DOShakePosition(0.5f, 0.1f, 1, 90f, false, true);
-        }
-    }
-    void Update()
-    {
-        // Detect if the mouse is pressed
-        if (Input.GetMouseButton(0))  // 0 is the left mouse button
-        {
-            isMousePressed = true;
+            int bubbleCount = bubblesParent.childCount;
+            bubbles = new GameObject[bubbleCount];
+
+            for (int i = 0; i < bubbleCount; i++)
+            {
+                bubbles[i] = bubblesParent.GetChild(i).gameObject;
+            }
+            PositionBubbles();
         }
         else
         {
-            isMousePressed = false;
+            Debug.LogError("Bubbles Parent não foi encontrado! Certifique-se de que ele está com a tag 'BubbleParent'.");
         }
-
-        // If the mouse is pressed, move the bubbles in the horde direction
-        if (isMousePressed)
+    }
+    private void PositionBubbles()
+    {
+        for (int i = 0; i < bubbles.Length; i++)
         {
-            MoveBubbles();
+            if (!bubbles[i].activeSelf) continue; // Ignorar bolhas inativas
+
+            Vector3 newPosition;
+
+            if (i == 0)
+            {
+                // A primeira bolha sempre começa em (0, 0)
+                newPosition = Vector3.zero;
+            }
+            else
+            {
+                // Próximas bolhas têm um valor aleatório no eixo X e uma distância fixa no eixo Y
+                float randomX = Random.Range(randomRangeX.x, randomRangeX.y);
+                float fixedY = i * yDistance;
+                newPosition = new Vector3(randomX, fixedY, 0f);
+            }
+
+            // Aplicar a nova posição à bolha
+            bubbles[i].transform.position = newPosition;
+        }
+    }
+    private void Update()
+    {
+        // Obter a posição do mouse no mundo
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition.z = 0; // Garantir que as bolhas permaneçam no plano 2D
+
+        foreach (GameObject bubble in bubbles)
+        {
+            if (!bubble.activeSelf) continue;
+
+            Vector3 followForce = FollowMouse(bubble, mousePosition);
+            Vector3 separation = Separation(bubble);
+
+            // Combinar forças
+            Vector3 totalForce = followForce + (separation * separationWeight);
+
+            // Limitar a força total
+            totalForce = Vector3.ClampMagnitude(totalForce, maxForce);
+
+            // Aplicar movimento
+            bubble.transform.position += totalForce * baseSpeed * Time.deltaTime;
         }
     }
 
-    void MoveBubbles()
+    private Vector3 FollowMouse(GameObject bubble, Vector3 mousePosition)
     {
-        // Get the mouse position in screen space and convert it to world space
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePos.z = 0;  // Ensure the bubbles stay in 2D (no movement in the z-axis)
+        // Vetor apontando para o mouse
+        Vector3 directionToMouse = mousePosition - bubble.transform.position;
 
-        // Calculate the direction (left or right) based on the mouse position
-        Vector3 direction = (mousePos.x < transform.position.x) ? Vector3.left : Vector3.right;
-
-        // Move each bubble in the direction of the mouse, considering the spacing
-        for (int i = 0; i < bubbles.Length; i++)
+        // Checar se a bolha está dentro do raio para seguir o mouse
+        if (directionToMouse.magnitude < followRadius)
         {
-            // Move each bubble with the spacing taken into account
-            Vector3 targetPosition = bubbles[i].transform.position + direction * spacing * i;
-            bubbles[i].transform.position = Vector3.MoveTowards(bubbles[i].transform.position, targetPosition, speed * Time.deltaTime);
+            directionToMouse.Normalize();
+            return directionToMouse;
         }
+
+        return Vector3.zero;
+    }
+
+    private Vector3 Separation(GameObject bubble)
+    {
+        Vector3 steer = Vector3.zero;
+        int count = 0;
+
+        foreach (GameObject other in bubbles)
+        {
+            if (other == bubble || !other.activeSelf) continue;
+
+            float distance = Vector3.Distance(bubble.transform.position, other.transform.position);
+            if (distance < avoidanceRadius)
+            {
+                // Vetor apontando para longe do vizinho
+                Vector3 diff = bubble.transform.position - other.transform.position;
+                diff.Normalize();
+                diff /= distance; // Ponderar pela distância
+                steer += diff;
+                count++;
+            }
+        }
+
+        if (count > 0)
+        {
+            steer /= count;
+        }
+
+        return steer;
     }
 }
