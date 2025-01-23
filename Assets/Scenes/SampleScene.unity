@@ -953,7 +953,7 @@ MonoBehaviour:
   blockPrefabs: []
   specialBlockPrefab: {fileID: 1682189839723676483, guid: 767b56dda0f91c54384ce4013627ac15, type: 3}
   specialBlockSpawnInterval: 10
-  randomRangeX: {x: -2, y: 2}
+  randomRangeX: {x: -5, y: 5}
   spawnY: 30
   despawnY: -20
   initialBlocks: 1
