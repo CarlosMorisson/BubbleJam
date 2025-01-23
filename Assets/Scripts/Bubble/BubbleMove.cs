@@ -13,9 +13,7 @@ public class BubbleMovement : MonoBehaviour
     [SerializeField] [Range(0, 10)] private float followRadius = 2f; // Raio de detecção de vizinhos
     [SerializeField] [Range(0, 10)] private float separationWeight = 2f; // Peso da separação
     [SerializeField] [Range(0, 10)] private float avoidanceRadius = 1f; // Peso da coesão
-    [SerializeField] [Range(0, 10)] private float mouseAttractionWeight = 2f; // Peso da atração ao mouse
     [SerializeField] [Range(0, 10)] private float maxForce = 0.5f; // Força máxima
-    [SerializeField] [Range(0, 1)] private float minDistance = 0.5f; // Distância mínima para evitar sobreposição
     [SerializeField] [Range(0, 5)] private float speedTolerance;
 
     private Camera mainCamera;
