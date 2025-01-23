@@ -10,7 +10,7 @@ public class BubbleMovement : MonoBehaviour
 
     [Header("Bubble Parameters")]
     [SerializeField] [Range(0, 10)] private float baseSpeed = 5f; // Velocidade base
-    [SerializeField] [Range(0, 10)] private float followRadius = 2f; // Raio de detecção de vizinhos
+    [SerializeField] [Range(0, 50)] private float followRadius = 2f; // Raio de detecção de vizinhos
     [SerializeField] [Range(0, 10)] private float separationWeight = 2f; // Peso da separação
     [SerializeField] [Range(0, 10)] private float avoidanceRadius = 1f; // Peso da coesão
     [SerializeField] [Range(0, 10)] private float maxForce = 0.5f; // Força máxima
