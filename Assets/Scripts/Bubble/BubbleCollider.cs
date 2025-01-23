@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,11 +12,19 @@ public class BubbleCollider : MonoBehaviour
     [SerializeField] [Range(1, 20)] [Tooltip("The max distance to apply the knockback")]
     public float maxPushDistance = 5f;
 
+
+    public bool Death;
+    public Action<bool> OnTakeDamage;
+
+
     private Rigidbody2D rb;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        Death = false;
     }
+
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
      
