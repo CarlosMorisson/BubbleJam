@@ -955,12 +955,12 @@ MonoBehaviour:
   specialBlockSpawnInterval: 10
   randomRangeX: {x: -5, y: 5}
   spawnY: 30
-  despawnY: -20
+  despawnY: -30
   initialBlocks: 1
   initialSpeed: 5
   accelerationRate: 20
   maxSpeed: 8
-  timeBetweenSpawns: 2
+  timeBetweenSpawns: 5
 --- !u!1 &1110098989
 GameObject:
   m_ObjectHideFlags: 0
