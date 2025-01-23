@@ -6,11 +6,12 @@ TagManager:
   tags:
   - BubbleParent
   - ObstaclesParent
+  - Fan
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Bubble
   - Water
   - UI
   - 
