@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - BubbleParent
+  - ObstaclesParent
   layers:
   - Default
   - TransparentFX
