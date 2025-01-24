@@ -11,11 +11,26 @@ public class BubbleCollider : MonoBehaviour
     [SerializeField] [Range(1, 20)] [Tooltip("The max distance to apply the knockback")]
     public float maxPushDistance = 5f;
 
+    [Header("Bubble Fight")]
+    [SerializeField] [Tooltip("How much damage the bubble can apply")]
+    private float bubbleDamage;
+    [SerializeField] [Tooltip("Time To enable bubble collision")]
+    private float collisionTimer=2;
+
     private Rigidbody2D rb;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        //Fazer com que novas bolhas nao sejam imediatamente destruidas quando ocorrer colisao
+        StartCoroutine(EnableCollision());
     }
+    private IEnumerator EnableCollision()
+    {
+        rb.isKinematic = true;
+        yield return new WaitForSeconds(collisionTimer);
+        rb.isKinematic = false;
+    }
+    #region Colliders
     private void OnTriggerEnter2D(Collider2D collision)
     {
      
@@ -30,6 +45,18 @@ public class BubbleCollider : MonoBehaviour
         }else if (collision.CompareTag("Teleport"))
         {
             collision.GetComponentInParent<WholeEffect>().TeleportPlayer(this.gameObject);
+        }
+        else if (collision.CompareTag("Damage"))
+        {
+            //if(TemSkillPraUsar) Usa a skill
+            //else
+            //Coloca Responsividade
+            //Coloca Som
+            gameObject.SetActive(false);
+        }
+        else if (collision.CompareTag("Enemy"))
+        {
+
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -46,4 +73,5 @@ public class BubbleCollider : MonoBehaviour
             collision.GetComponentInParent<WholeEffect>().ApplyAttraction(rb);
         }
     }
+    #endregion
 }
