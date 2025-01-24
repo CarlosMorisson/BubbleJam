@@ -22,19 +22,28 @@ public class BubbleCollider : MonoBehaviour
         // Verifica se o objeto que entrou no trigger tem a tag "Fan"
         if (collision.CompareTag("Fan"))
         {
-            Debug.Log("encostou");
             // Calcula a direção *contrária* ao centro do collider do "Fan"
             Vector2 knockbackDirection = transform.position - collision.transform.position;
             knockbackDirection.Normalize();
 
             rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
+        }else if (collision.CompareTag("Teleport"))
+        {
+            collision.GetComponentInParent<WholeEffect>().TeleportPlayer(this.gameObject);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Fan"))
+        if (collision.CompareTag("Fan") || collision.CompareTag("Teleport") || collision.CompareTag("Attraction"))
         {
             rb.velocity = Vector2.zero;
+        }
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Attraction"))
+        {
+            collision.GetComponentInParent<WholeEffect>().ApplyAttraction(rb);
         }
     }
 }
