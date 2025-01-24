@@ -100,7 +100,7 @@ public class LevelController : MonoBehaviour
     {
         if (blockPrefabs.Count == 0 || specialBlockSpawned)
         {
-            Debug.LogError("Nenhum prefab de bloco encontrado na pasta Resources/Blocos! " + "Ou ja instanciou o boss");
+            
             return;
         }
         

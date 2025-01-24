@@ -7,6 +7,10 @@ TagManager:
   - BubbleParent
   - ObstaclesParent
   - Fan
+  - Teleport
+  - Attraction
+  - Damage
+  - Enemy
   layers:
   - Default
   - TransparentFX

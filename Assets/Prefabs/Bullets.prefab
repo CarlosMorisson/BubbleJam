@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 983616740385050534}
   m_Layer: 0
   m_Name: Bullets
-  m_TagString: Untagged
+  m_TagString: Damage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,6 +127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forceScale: 3
+  piercing: 0
   lifeTime: 3
 --- !u!58 &983616740385050534
 CircleCollider2D:

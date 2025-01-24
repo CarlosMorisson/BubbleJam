@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecf4bc94ec25d3946a7ba31273ea51a5, type: 3}
+  m_Name: AudioConfiguration
+  m_EditorClassIdentifier: 
+  Audios:
+    _valueKeyPairList:
+    - Key: Music
+      Value:
+        AudioMixerGroup: {fileID: -6665460119565234226, guid: 0cefb3748ba55a54aa76b46c9bde0e41, type: 2}
+        PoolLenght: 1
+        Sounds:
+          _valueKeyPairList:
+          - Key: MusicaTema
+            Value:
+              Clip: {fileID: 8300000, guid: 9a61953ac787e73448b1ec4d9477f0f8, type: 3}
+              Loop: 0
+              Priority: 128
+              Volume: 1
+              Pitch: 1
+              Pan: 0
+              MinDistance: 1
+              MaxDistance: 50
+          - Key: Boss
+            Value:
+              Clip: {fileID: 8300000, guid: 9a61953ac787e73448b1ec4d9477f0f8, type: 3}
+              Loop: 0
+              Priority: 121
+              Volume: 1
+              Pitch: 0.814
+              Pan: 0
+              MinDistance: 1
+              MaxDistance: 50
+    - Key: SFX
+      Value:
+        AudioMixerGroup: {fileID: -3926276308457511099, guid: 0cefb3748ba55a54aa76b46c9bde0e41, type: 2}
+        PoolLenght: 1
+        Sounds:
+          _valueKeyPairList: []
+    - Key: Ambient
+      Value:
+        AudioMixerGroup: {fileID: -7429954558812127354, guid: 0cefb3748ba55a54aa76b46c9bde0e41, type: 2}
+        PoolLenght: 1
+        Sounds:
+          _valueKeyPairList: []
