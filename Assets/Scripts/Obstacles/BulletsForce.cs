@@ -5,8 +5,10 @@ using UnityEngine;
 public class BulletsForce : MonoBehaviour
 {
     [SerializeField]
-    private float  forceScale;
-   
+    private float forceScale;
+    [SerializeField]
+    private bool piercing;
+
     private Transform origin;
     [SerializeField]
     private float lifeTime;
@@ -14,10 +16,10 @@ public class BulletsForce : MonoBehaviour
 
     private void OnEnable()
     {
-        origin=this.gameObject.transform.parent.parent.GetChild(1);
+        origin = this.gameObject.transform.parent.parent.GetChild(1);
         Debug.Log(origin.name);
         direction = origin.right;//this.gameObject.transform.parent.eulerAngles;
-        this.gameObject.GetComponent<Rigidbody2D>().AddForce(direction*forceScale,ForceMode2D.Impulse);
+        this.gameObject.GetComponent<Rigidbody2D>().AddForce(direction * forceScale, ForceMode2D.Impulse);
         StartCoroutine(BulletDestroy());
 
     }
@@ -26,5 +28,20 @@ public class BulletsForce : MonoBehaviour
         yield return new WaitForSeconds(lifeTime);
 
         Destroy(this.gameObject);
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+
+
+        if (collision.CompareTag("Player"))
+        {
+            Debug.Log("morreu");
+            if (!piercing)
+            {
+                Destroy(this.gameObject);
+            }
+
+
+        }
     }
 }
