@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class BubbleMovement : MonoBehaviour
 {
+    public static BubbleMovement Instance;
     private Transform bubblesParent;
     private GameObject[] bubbles; // Array de bolhas
     [Header("Position Parameters")] 
@@ -17,10 +18,12 @@ public class BubbleMovement : MonoBehaviour
     [SerializeField] [Range(0, 5)] private float speedTolerance;
 
     private Camera mainCamera;
-
-    private void Start()
+    private void Awake()
     {
-        // Encontrar o pai das bolhas e inicializar o array
+        Instance = this;
+    }
+    public void NewBubble()
+    {
         bubblesParent = GameObject.FindGameObjectWithTag("BubbleParent").transform;
         mainCamera = Camera.main;
 
@@ -33,12 +36,21 @@ public class BubbleMovement : MonoBehaviour
             {
                 bubbles[i] = bubblesParent.GetChild(i).gameObject;
             }
-            PositionBubbles();
+         
         }
         else
         {
             Debug.LogError("Bubbles Parent não foi encontrado! Certifique-se de que ele está com a tag 'BubbleParent'.");
         }
+    }
+
+    private void Start()
+    {
+        // Encontrar o pai das bolhas e inicializar o array
+        NewBubble();
+        PositionBubbles();
+
+
     }
     private void PositionBubbles()
     {

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,6 +19,8 @@ public class BubbleCollider : MonoBehaviour
    
 
     private Rigidbody2D rb;
+
+   
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -48,11 +51,8 @@ public class BubbleCollider : MonoBehaviour
         }
         else if (collision.CompareTag("Damage"))
         {
-            //if(TemSkillPraUsar) Usa a skill
-            //else
-            //Coloca Responsividade
-            //Coloca Som
-            gameObject.SetActive(false);
+
+            DamageController.OnTakeDamage.Invoke(0);
         }
         else if (collision.CompareTag("Enemy"))
         {
@@ -74,4 +74,11 @@ public class BubbleCollider : MonoBehaviour
         }
     }
     #endregion
+
+    void  TakeDamage()
+    {
+      
+        this.gameObject.SetActive(false);
+      
+    }
 }
