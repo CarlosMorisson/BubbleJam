@@ -12,6 +12,18 @@ public class StoreController : MonoBehaviour
     {
         // Carregar o valor do jogador do PlayerPrefs (se necessário)
         playerCoins = PlayerPrefs.GetInt("PlayerCoins", 0);
+
+        StoreView.Instance.ActualizeValue(playerCoins);
+        //Verifica quais itens foram comprados para atualizar a UI
+        foreach(BuySkill buy in itemsForSale)
+        {
+            buy.purchaseTime = PlayerPrefs.GetInt(buy.name + "purchaseTime");
+            if (buy.purchaseTime > 0)
+                buy.isPurchased = true;
+            StoreView.Instance.CheckItensThatCanBuy(buy);
+            
+            BubbleController.Instance.CheckUpgrades(buy.skillName, buy.isPurchased);
+        }
     }
 
     public void BuyItem(int itemIndex)
@@ -29,10 +41,16 @@ public class StoreController : MonoBehaviour
 
                 // Salvar o novo valor do jogador no PlayerPrefs
                 PlayerPrefs.SetInt("PlayerCoins", playerCoins);
-
+               
                 // Marcar o item como comprado
                 item.isPurchased = true;
                 item.purchaseTime++;
+                PlayerPrefs.SetInt(item.name + "purchaseTime", item.purchaseTime);
+
+                StoreView.Instance.ActualizeValue(playerCoins);
+                StoreView.Instance.CheckItensThatCanBuy(item);
+
+                BubbleController.Instance.CheckUpgrades(item.skillName, item.isPurchased);
                 // Salvar a informação da compra no PlayerPrefs (opcional)
                 // Você pode usar um formato JSON para salvar um array de booleanos
                 // indicando quais itens foram comprados

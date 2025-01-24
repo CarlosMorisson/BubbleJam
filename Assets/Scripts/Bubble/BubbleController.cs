@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BubbleController : MonoBehaviour
 {
+    public static BubbleController Instance;
     private Transform bubblesParent;
     private GameObject[] bubbles;
 
@@ -17,6 +18,7 @@ public class BubbleController : MonoBehaviour
 
     void Start()
     {
+        Instance = this;
         bubblesParent = GameObject.FindGameObjectWithTag("BubbleParent").transform;
         if (bubblesParent != null)
         {
@@ -30,5 +32,16 @@ public class BubbleController : MonoBehaviour
             }
         }
     }
-
+    public void CheckUpgrades(string skillName, bool isPurchased)
+    {
+        //Sim é porquice mas é só pra Jam, se quiser expandir tem q tirar essa caganeira
+        if (skillName == "Bolha Dupla")
+            doubleBubble = isPurchased;
+        if (skillName == "Bolha de Troia")
+            troiaBubble = isPurchased;
+        if (skillName == "Bolha Acida")
+            acidBubble = isPurchased;
+        if (skillName == "Bolha Ricochete")
+            bounceBubble = isPurchased;
+    }
 }

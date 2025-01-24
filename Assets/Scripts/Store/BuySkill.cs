@@ -10,4 +10,8 @@ public class BuySkill : MonoBehaviour
     public bool isPurchased;
     public int purchaseTime;
     public int maxPurchase;
+    [TextArea]
+    public string Descrition;
+    public GameObject BuyButton;
+    public GameObject DescriptionPanel;
 }
