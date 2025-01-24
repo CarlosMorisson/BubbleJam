@@ -29,7 +29,7 @@ public class BubbleController : MonoBehaviour
     }
     private int CountActiveBubbles()
     {
-        int activeBubbleCount = 0;
+        int activeBubbleCount = -1;
         foreach (Transform child in bubblesParent)
         {
             if (child.gameObject.activeSelf)
