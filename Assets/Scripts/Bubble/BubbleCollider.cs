@@ -12,10 +12,10 @@ public class BubbleCollider : MonoBehaviour
     public float maxPushDistance = 5f;
 
     [Header("Bubble Fight")]
-    [SerializeField] [Tooltip("How much damage the bubble can apply")]
-    private float bubbleDamage;
     [SerializeField] [Tooltip("Time To enable bubble collision")]
-    private float collisionTimer=2;
+    private float collisionTimer = 2;
+    public float bubbleDamage { private get; set; }
+   
 
     private Rigidbody2D rb;
     private void Start()
