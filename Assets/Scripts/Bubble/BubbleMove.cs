@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class BubbleMovement : MonoBehaviour
 {
+    public static BubbleMovement Instance;
     private Transform bubblesParent;
     private GameObject[] bubbles; // Array de bolhas
     [Header("Position Parameters")] 
@@ -17,10 +18,12 @@ public class BubbleMovement : MonoBehaviour
     [SerializeField] [Range(0, 5)] private float speedTolerance;
 
     private Camera mainCamera;
-
-    private void Start()
+    private void Awake()
     {
-        // Encontrar o pai das bolhas e inicializar o array
+        Instance = this;
+    }
+    public void NewBubble()
+    {
         bubblesParent = GameObject.FindGameObjectWithTag("BubbleParent").transform;
         mainCamera = Camera.main;
 
@@ -33,12 +36,31 @@ public class BubbleMovement : MonoBehaviour
             {
                 bubbles[i] = bubblesParent.GetChild(i).gameObject;
             }
-            PositionBubbles();
+         
         }
         else
         {
             Debug.LogError("Bubbles Parent não foi encontrado! Certifique-se de que ele está com a tag 'BubbleParent'.");
         }
+    }
+    private void HandleGameStateChange(GameController.GameState newState)
+    {
+        if (newState == GameController.GameState.Game)
+        {
+            NewBubble();
+            PositionBubbles();
+        }
+        else
+        {
+            StopAllCoroutines();
+            // Reseta o timer de spawn
+            Debug.Log("LevelController desativado.");
+        }
+    }
+    private void Start()
+    {
+        // Encontrar o pai das bolhas e inicializar o array
+        GameController.OnGameStateChanged += HandleGameStateChange;
     }
     private void PositionBubbles()
     {
@@ -57,7 +79,7 @@ public class BubbleMovement : MonoBehaviour
             {
                 // Próximas bolhas têm um valor aleatório no eixo X e uma distância fixa no eixo Y
                 float randomX = Random.Range(randomRangeX.x, randomRangeX.y);
-                float fixedY = i * yDistance;
+                float fixedY =  yDistance;
                 newPosition = new Vector3(randomX, fixedY, 0f);
             }
 
@@ -70,7 +92,8 @@ public class BubbleMovement : MonoBehaviour
         // Obter a posição do mouse no mundo
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0; // Garantir que as bolhas permaneçam no plano 2D
-
+        if (GameController.GameState.Store == GameController.Instance.State)
+            return;
         foreach (GameObject bubble in bubbles)
         {
             if (!bubble.activeSelf) continue;

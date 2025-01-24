@@ -5,11 +5,13 @@ using UnityEngine;
 
 public class StoreController : MonoBehaviour
 {
+    public static StoreController Instance;
     public int playerCoins; // Valor atual do jogador
     public BuySkill[] itemsForSale; // Array de itens à venda
 
     private void Start()
     {
+        Instance = this;
         // Carregar o valor do jogador do PlayerPrefs (se necessário)
         playerCoins = PlayerPrefs.GetInt("PlayerCoins", 0);
 
@@ -26,6 +28,10 @@ public class StoreController : MonoBehaviour
         }
     }
 
+    public void VerifyToMonetize(int bubbleCount)
+    {
+        playerCoins += bubbleCount / 2;
+    }
     public void BuyItem(int itemIndex)
     {
         // Verificar se o índice do item é válido
