@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,14 +14,22 @@ public class GameController : MonoBehaviour
     }
     public GameState State;
 
-    void Start()
+    public static Action<GameState> OnGameStateChanged;
+
+    void Awake()
     {
         Instance = this;
         State = GameState.Store;
     }
-
     public void StartGame()
     {
-        State = GameState.Game;
+        GetGameState(GameState.Game);
     }
+
+    public void GetGameState(GameState state)
+    {
+        State = state;
+        OnGameStateChanged?.Invoke(State);
+    }
+
 }

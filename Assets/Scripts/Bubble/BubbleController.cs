@@ -16,6 +16,39 @@ public class BubbleController : MonoBehaviour
     [SerializeField]
     private bool doubleBubble, acidBubble, troiaBubble, bounceBubble;
 
+    private int activeBubbleCount;
+    public void CheckBubbleCount()
+    {
+        int bubbleCount = bubblesParent.childCount;
+        bubbles = new GameObject[bubbleCount];
+
+        for (int i = 0; i < bubbleCount; i++)
+        {
+            activeBubbleCount = bubblesParent.childCount;
+        }
+    }
+    private int CountActiveBubbles()
+    {
+        int activeBubbleCount = 0;
+        foreach (Transform child in bubblesParent)
+        {
+            if (child.gameObject.activeSelf)
+            {
+                activeBubbleCount++;
+            }
+        }
+        return activeBubbleCount;
+    }
+
+    public int GetActiveBubbleCount()
+    {
+        if (bubblesParent == null)
+        {
+            Debug.LogError("Bubbles Parent não foi encontrado!");
+            return 0; // Retorna 0 em caso de erro
+        }
+        return CountActiveBubbles();
+    }
     void Start()
     {
         Instance = this;
@@ -24,7 +57,7 @@ public class BubbleController : MonoBehaviour
         {
             int bubbleCount = bubblesParent.childCount;
             bubbles = new GameObject[bubbleCount];
-
+            activeBubbleCount = CountActiveBubbles();
             for (int i = 0; i < bubbleCount; i++)
             {
                 bubbles[i] = bubblesParent.GetChild(i).gameObject;
