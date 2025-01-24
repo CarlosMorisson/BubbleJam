@@ -6213,7 +6213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blockPrefabs: []
   specialBlockPrefab: {fileID: 1682189839723676483, guid: 767b56dda0f91c54384ce4013627ac15, type: 3}
-  specialBlockSpawnInterval: 50
+  specialBlockSpawnInterval: 500
   randomRangeX: {x: -5, y: 5}
   spawnY: 20
   despawnY: -30
