@@ -34,7 +34,7 @@ public class BubbleCollider : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Fan") || collision.CompareTag("Teleport"))
+        if (collision.CompareTag("Fan") || collision.CompareTag("Teleport") || collision.CompareTag("Attraction"))
         {
             rb.velocity = Vector2.zero;
         }
