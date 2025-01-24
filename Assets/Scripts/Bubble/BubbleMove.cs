@@ -57,7 +57,7 @@ public class BubbleMovement : MonoBehaviour
             {
                 // Próximas bolhas têm um valor aleatório no eixo X e uma distância fixa no eixo Y
                 float randomX = Random.Range(randomRangeX.x, randomRangeX.y);
-                float fixedY = i * yDistance;
+                float fixedY =  yDistance;
                 newPosition = new Vector3(randomX, fixedY, 0f);
             }
 

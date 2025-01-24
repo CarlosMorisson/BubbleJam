@@ -5,58 +5,91 @@ using UnityEngine;
 public class LevelController : MonoBehaviour
 {
     [Header("Obstacles Configuration")]
-    [SerializeField] 
+    [SerializeField]
     private List<GameObject> blockPrefabs = new List<GameObject>();
 
-    [SerializeField] [Tooltip("The Objective of game")] 
-    private GameObject specialBlockPrefab; // Prefab do bloco especial
+    [SerializeField]
+    private GameObject specialBlockPrefab;
 
-    [SerializeField] [Tooltip("Number of instances to go to the object")] 
-    private int specialBlockSpawnInterval = 10; // A cada quantos blocos normais o bloco especial aparece
+    [SerializeField]
+    private int specialBlockSpawnInterval = 10;
 
     private Transform blockParent;
 
-    [SerializeField] [Tooltip("Randon x position of instances")]
-
+    [SerializeField]
     private Vector2 randomRangeX;
 
-    [SerializeField] [Range(0, 30)] [Tooltip("Height in Y to spawn the blocks")]
+    [SerializeField]
     private float spawnY = 0f;
 
-    [SerializeField] [Range(0, -30)] [Tooltip("Height in Y to destroy the blocks")]
+    [SerializeField]
     private float despawnY = -10f;
 
-    [SerializeField] [Range(0, 30)] [Tooltip("Number of blocks")]
+    [SerializeField]
     private int initialBlocks = 5;
 
     private int blocksSpawned = 0;
-    //
-    [Header("Acceleration")]
+    private bool specialBlockSpawned = false;
 
-    [SerializeField] [Tooltip("initial speed")]
+    [Header("Acceleration")]
+    [SerializeField]
     private float initialSpeed = 5f;
 
-    [SerializeField] [Tooltip("how much can accelerate")]
+    [SerializeField]
     private float accelerationRate = 0.1f;
 
-    [Tooltip("the max peed that the object can go")] [SerializeField] 
+    [SerializeField]
     private float maxSpeed = 15f;
 
     private float currentSpeed;
-    //
+
     [Header("Timed Spawning")]
-    [SerializeField] [Tooltip("Time between spawn")] [Range(1,15)]
+    [SerializeField]
     private float timeBetweenSpawns = 2f;
 
     private float timeSinceLastSpawn = 0f;
-    //
-    private List<GameObject> activeBlocks = new List<GameObject>();
-    private bool specialBlockSpawned = false; // Flag para controlar se o bloco especial já foi instanciado
 
-    void Start()
+    private List<GameObject> activeBlocks = new List<GameObject>();
+
+    private void OnEnable()
+    {
+        GameController.OnGameStateChanged += HandleGameStateChange;
+        if (GameController.Instance.State== GameController.GameState.Game)
+        {
+            StartLevel();
+        }
+    }
+
+    private void OnDisable()
+    {
+        GameController.OnGameStateChanged -= HandleGameStateChange;
+    }
+
+    private void HandleGameStateChange(GameController.GameState newState)
+    {
+        if (newState == GameController.GameState.Game)
+        {
+            StartLevel();
+        }
+        else
+        {
+            StopAllCoroutines();
+            foreach (var block in activeBlocks)
+            {
+                Destroy(block);
+            }
+            activeBlocks.Clear();
+            specialBlockSpawned = false;
+            blocksSpawned = 0;
+            currentSpeed = initialSpeed;
+            timeSinceLastSpawn = 0; // Reseta o timer de spawn
+            Debug.Log("LevelController desativado.");
+        }
+    }
+
+    private void StartLevel()
     {
         currentSpeed = initialSpeed;
-        // Carrega os prefabs da pasta Resources
         blockParent = GameObject.FindGameObjectWithTag("ObstaclesParent").transform;
         Object[] loadedPrefabs = Resources.LoadAll("Blocos", typeof(GameObject));
         foreach (Object prefab in loadedPrefabs)
@@ -69,22 +102,31 @@ public class LevelController : MonoBehaviour
             return;
         }
 
-        // Instancia os blocos iniciais
         for (int i = 0; i < initialBlocks; i++)
         {
             SpawnBlock();
+        }
+        StartCoroutine(SpawnBlockCoroutine());
+    }
+
+    private IEnumerator SpawnBlockCoroutine()
+    {
+        while (true)
+        {
+            if (GameController.Instance.State == GameController.GameState.Game)
+            {
+                yield return new WaitForSeconds(timeBetweenSpawns);
+                SpawnBlock();
+            }
+            else
+            {
+                yield break;
+            }
         }
     }
 
     void Update()
     {
-        timeSinceLastSpawn += Time.deltaTime;
-        if (timeSinceLastSpawn >= timeBetweenSpawns)
-        {
-            SpawnBlock();
-            timeSinceLastSpawn = 0f;
-        }
-
         // Verifica se os blocos saíram da tela e os destrói
         for (int i = activeBlocks.Count - 1; i >= 0; i--)
         {
@@ -92,25 +134,25 @@ public class LevelController : MonoBehaviour
             {
                 Destroy(activeBlocks[i]);
                 activeBlocks.RemoveAt(i);
+                StoreController.Instance.VerifyToMonetize(BubbleController.Instance.GetActiveBubbleCount());
             }
         }
     }
 
     void SpawnBlock()
     {
-        if (blockPrefabs.Count == 0 || specialBlockSpawned)
+        if (blockPrefabs.Count == 0)
         {
-            Debug.LogError("Nenhum prefab de bloco encontrado na pasta Resources/Blocos! " + "Ou ja instanciou o boss");
+            Debug.LogError("Nenhum prefab de bloco encontrado na pasta Resources/Blocos!");
             return;
         }
-        
+
         GameObject newBlock;
 
-        // Verifica se é hora de spawnar o bloco especial e se ele ainda não foi spawnado
         if (blocksSpawned >= specialBlockSpawnInterval && !specialBlockSpawned)
         {
             newBlock = Instantiate(specialBlockPrefab, blockParent);
-            specialBlockSpawned = true; // Define a flag para true para impedir novas instâncias
+            specialBlockSpawned = true;
         }
         else
         {
@@ -120,11 +162,8 @@ public class LevelController : MonoBehaviour
             newBlock = Instantiate(selectedPrefab, blockParent);
             newBlock.transform.position = new Vector3(Random.Range(randomRangeX.x, randomRangeX.y), spawnY, 0);
             newBlock.GetComponent<ObstacleMovemment>().Speed = ObstacleAcceleration();
-            blocksSpawned++; // Incrementa o contador de blocos normais
+            blocksSpawned++;
         }
-
-        newBlock.transform.position = new Vector3(0, spawnY, 0);
-
         activeBlocks.Add(newBlock);
 
         float randomX = Random.Range(randomRangeX.x, randomRangeX.y);
@@ -132,6 +171,7 @@ public class LevelController : MonoBehaviour
         newPosition.x = randomX;
         newBlock.transform.position = newPosition;
     }
+
     private float ObstacleAcceleration()
     {
         currentSpeed = Mathf.Min(currentSpeed + accelerationRate * Time.deltaTime, maxSpeed);
