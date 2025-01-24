@@ -41,7 +41,7 @@ public class BubbleController : MonoBehaviour
             troiaBubble = isPurchased;
         if (skillName == "Bolha Acida")
             acidBubble = isPurchased;
-        if (skillName == "Bolha Ricochete")
+        if (skillName == " Bolha Ricochete")
             bounceBubble = isPurchased;
     }
 }
