@@ -52,7 +52,7 @@ public class BubbleCollider : MonoBehaviour
         else if (collision.CompareTag("Damage"))
         {
 
-            DamageController.OnTakeDamage.Invoke(0);
+            TakeDamage();
         }
         else if (collision.CompareTag("Enemy"))
         {

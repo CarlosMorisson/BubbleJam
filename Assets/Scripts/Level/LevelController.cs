@@ -54,10 +54,6 @@ public class LevelController : MonoBehaviour
     private void OnEnable()
     {
         GameController.OnGameStateChanged += HandleGameStateChange;
-        if (GameController.Instance.State== GameController.GameState.Game)
-        {
-            StartLevel();
-        }
     }
 
     private void OnDisable()
