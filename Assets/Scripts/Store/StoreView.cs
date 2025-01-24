@@ -16,8 +16,8 @@ public class StoreView : MonoBehaviour
     void Start()
     {
         Instance = this;
-
     }
+   
     public void CheckDescription(BuySkill buy)
     {
         showDescription = !showDescription;
