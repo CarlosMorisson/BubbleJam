@@ -9,11 +9,19 @@ public class DamageController : MonoBehaviour
 
     void OnEnable()
     {
-        
+        OnTakeDamage += SpaceTakeDamage;
 
     }
     private void OnDisable()
     {
 
     }
+
+    void SpaceTakeDamage(int num)
+    {
+        DamageView.Instance.UpdateText();
+
+       
+    }
+
 }
