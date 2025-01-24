@@ -43,14 +43,24 @@ public class BubbleMovement : MonoBehaviour
             Debug.LogError("Bubbles Parent não foi encontrado! Certifique-se de que ele está com a tag 'BubbleParent'.");
         }
     }
-
+    private void HandleGameStateChange(GameController.GameState newState)
+    {
+        if (newState == GameController.GameState.Game)
+        {
+            NewBubble();
+            PositionBubbles();
+        }
+        else
+        {
+            StopAllCoroutines();
+            // Reseta o timer de spawn
+            Debug.Log("LevelController desativado.");
+        }
+    }
     private void Start()
     {
         // Encontrar o pai das bolhas e inicializar o array
-        NewBubble();
-        PositionBubbles();
-
-
+        GameController.OnGameStateChanged += HandleGameStateChange;
     }
     private void PositionBubbles()
     {
@@ -82,7 +92,8 @@ public class BubbleMovement : MonoBehaviour
         // Obter a posição do mouse no mundo
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0; // Garantir que as bolhas permaneçam no plano 2D
-
+        if (GameController.GameState.Store == GameController.Instance.State)
+            return;
         foreach (GameObject bubble in bubbles)
         {
             if (!bubble.activeSelf) continue;
