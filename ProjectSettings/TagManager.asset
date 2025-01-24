@@ -9,6 +9,8 @@ TagManager:
   - Fan
   - Teleport
   - Attraction
+  - Damage
+  - Enemy
   layers:
   - Default
   - TransparentFX
