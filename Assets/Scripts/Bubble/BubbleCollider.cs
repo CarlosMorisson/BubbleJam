@@ -111,7 +111,7 @@ public class BubbleCollider : MonoBehaviour
     #endregion
     void ApplyDamage()
     {
-        BossController.OnTakeDamage.Invoke((int)bubbleDamage);
+        BossModel.OnTakeDamage.Invoke((int)bubbleDamage);
         TakeDamage();
     }
     void  TakeDamage()
