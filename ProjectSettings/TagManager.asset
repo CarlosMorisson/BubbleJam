@@ -6,11 +6,16 @@ TagManager:
   tags:
   - BubbleParent
   - ObstaclesParent
+  - Fan
+  - Teleport
+  - Attraction
+  - Damage
+  - Enemy
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Bubble
   - Water
   - UI
   - 

@@ -7,42 +7,85 @@ public class LevelController : MonoBehaviour
     [Header("Obstacles Configuration")]
     [SerializeField]
     private List<GameObject> blockPrefabs = new List<GameObject>();
+
     [SerializeField]
-    [Tooltip("The Objective of game")]
-    private GameObject specialBlockPrefab; // Prefab do bloco especial
+    private GameObject specialBlockPrefab;
+
     [SerializeField]
-    [Tooltip("Number of instances to go to the object")]
-    private int specialBlockSpawnInterval = 10; // A cada quantos blocos normais o bloco especial aparece
+    private int specialBlockSpawnInterval = 10;
+
     private Transform blockParent;
+
     [SerializeField]
-    [Tooltip("Randon x position of instances")]
     private Vector2 randomRangeX;
+
     [SerializeField]
-    [Tooltip("Height of blocks padronized")]
-    private float blockHeight = 1f;
-    [SerializeField]
-    [Range(0, 30)]
-    [Tooltip("Height in Y to spawn the blocks")]
     private float spawnY = 0f;
+
     [SerializeField]
-    [Range(0, -30)]
-    [Tooltip("Height in Y to destroy the blocks")]
     private float despawnY = -10f;
+
     [SerializeField]
-    [Range(0, 30)]
-    [Tooltip("Number of blocks")]
-    private int initialBlocks = 5;
+    private int initialBlocks = 20;
+
+    private int blocksSpawned = 0;
+    private bool specialBlockSpawned = false;
+
+    [Header("Acceleration")]
     [SerializeField]
-    [Range(0, 30)]
-    [Tooltip("Number of instances to finish the game")]
-    private int blocksSpawned = 0; // Contador de blocos normais instanciados
+    private float initialSpeed = 5f;
+
+    [SerializeField]
+    private float accelerationRate = 0.1f;
+
+    [SerializeField]
+    private float maxSpeed = 15f;
+
+    private float currentSpeed;
+
+    [Header("Timed Spawning")]
+    [SerializeField]
+    private float timeBetweenSpawns = 2f;
+
+    private float timeSinceLastSpawn = 0f;
 
     private List<GameObject> activeBlocks = new List<GameObject>();
-    private bool specialBlockSpawned = false; // Flag para controlar se o bloco especial já foi instanciado
 
-    void Start()
+    private void OnEnable()
     {
-        // Carrega os prefabs da pasta Resources
+        GameController.OnGameStateChanged += HandleGameStateChange;
+    }
+
+    private void OnDisable()
+    {
+        GameController.OnGameStateChanged -= HandleGameStateChange;
+    }
+
+    private void HandleGameStateChange(GameController.GameState newState)
+    {
+        if (newState == GameController.GameState.Game)
+        {
+            StartLevel();
+        }
+        else
+        {
+            StopAllCoroutines();
+            foreach (var block in activeBlocks)
+            {
+                Destroy(block);
+            }
+            activeBlocks.Clear();
+            specialBlockSpawned = false;
+            blocksSpawned = 0;
+            currentSpeed = initialSpeed;
+            timeSinceLastSpawn = 0; // Reseta o timer de spawn
+            Debug.Log("LevelController desativado.");
+        }
+    }
+
+    private void StartLevel()
+    {
+        currentSpeed = initialSpeed;
         blockParent = GameObject.FindGameObjectWithTag("ObstaclesParent").transform;
         Object[] loadedPrefabs = Resources.LoadAll("Blocos", typeof(GameObject));
         foreach (Object prefab in loadedPrefabs)
@@ -55,10 +98,26 @@ public class LevelController : MonoBehaviour
             return;
         }
 
-        // Instancia os blocos iniciais
         for (int i = 0; i < initialBlocks; i++)
         {
             SpawnBlock();
+        }
+        StartCoroutine(SpawnBlockCoroutine());
+    }
+
+    private IEnumerator SpawnBlockCoroutine()
+    {
+        while (true)
+        {
+            if (GameController.Instance.State == GameController.GameState.Game)
+            {
+                yield return new WaitForSeconds(timeBetweenSpawns);
+                SpawnBlock();
+            }
+            else
+            {
+                yield break;
+            }
         }
     }
 
@@ -71,8 +130,7 @@ public class LevelController : MonoBehaviour
             {
                 Destroy(activeBlocks[i]);
                 activeBlocks.RemoveAt(i);
-                // Spawna outro quando destruido
-                SpawnBlock();
+                StoreController.Instance.VerifyToMonetize(BubbleController.Instance.GetActiveBubbleCount());
             }
         }
     }
@@ -84,32 +142,35 @@ public class LevelController : MonoBehaviour
             Debug.LogError("Nenhum prefab de bloco encontrado na pasta Resources/Blocos!");
             return;
         }
-        
+
         GameObject newBlock;
 
-        // Verifica se é hora de spawnar o bloco especial e se ele ainda não foi spawnado
         if (blocksSpawned >= specialBlockSpawnInterval && !specialBlockSpawned)
         {
             newBlock = Instantiate(specialBlockPrefab, blockParent);
-            specialBlockSpawned = true; // Define a flag para true para impedir novas instâncias
+            specialBlockSpawned = true;
         }
         else
         {
             int randomIndex = Random.Range(0, blockPrefabs.Count);
             GameObject selectedPrefab = blockPrefabs[randomIndex];
+
             newBlock = Instantiate(selectedPrefab, blockParent);
-
-            blocksSpawned++; // Incrementa o contador de blocos normais
+            newBlock.transform.position = new Vector3(Random.Range(randomRangeX.x, randomRangeX.y), spawnY, 0);
+            newBlock.GetComponent<ObstacleMovemment>().Speed = ObstacleAcceleration();
+            blocksSpawned++;
         }
-
-        newBlock.transform.position = new Vector3(0, spawnY, 0);
-        spawnY += blockHeight;
-
         activeBlocks.Add(newBlock);
 
         float randomX = Random.Range(randomRangeX.x, randomRangeX.y);
         Vector3 newPosition = newBlock.transform.position;
         newPosition.x = randomX;
         newBlock.transform.position = newPosition;
+    }
+
+    private float ObstacleAcceleration()
+    {
+        currentSpeed = Mathf.Min(currentSpeed + accelerationRate * Time.deltaTime, maxSpeed);
+        return currentSpeed;
     }
 }
