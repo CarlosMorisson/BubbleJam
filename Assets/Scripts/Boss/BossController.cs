@@ -7,8 +7,8 @@ public class BossController : MonoBehaviour
 {
     public static BossController Instance;
     [Header("Boss Attributes")]
-    [SerializeField] [Tooltip("Life Of Boss")]
-    private int bossLife;
+    [Tooltip("Life Of Boss")]
+    public int bossLife;
 
     [SerializeField]
     private Sprite[] spritesDoBoss; //Caso queira mudar quanto menos vida tiver
@@ -18,6 +18,7 @@ public class BossController : MonoBehaviour
     public static Action<int> OnTakeDamage;
     void Start()
     {
+        Instance = this;
         OnTakeDamage += ReceiveDamage;
         GameController.OnGameStateChanged += LoadBossLife;
         actualSprite = GetComponentInChildren<SpriteRenderer>();
