@@ -421,7 +421,7 @@ GameObject:
   - component: {fileID: 89184839}
   m_Layer: 3
   m_Name: Circle (37)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -436,7 +436,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.08, y: -10.610001, z: 0}
-  m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 186489943}
@@ -570,6 +570,11 @@ MonoBehaviour:
   knockbackForce: 5
   maxPushDistance: 5
   collisionTimer: 0
+  Acid: 0
+  Double: 0
+  Troy: 0
+  Bounce: 0
+  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
 --- !u!1 &98654639
 GameObject:
   m_ObjectHideFlags: 0
@@ -585,7 +590,7 @@ GameObject:
   - component: {fileID: 98654644}
   m_Layer: 3
   m_Name: Circle (40)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -600,7 +605,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.18, y: -10.610001, z: 0}
-  m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 186489943}
@@ -734,6 +739,11 @@ MonoBehaviour:
   knockbackForce: 5
   maxPushDistance: 5
   collisionTimer: 0
+  Acid: 0
+  Double: 0
+  Troy: 0
+  Bounce: 0
+  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
 --- !u!1 &120847280
 GameObject:
   m_ObjectHideFlags: 0
@@ -927,7 +937,7 @@ GameObject:
   - component: {fileID: 149296850}
   m_Layer: 3
   m_Name: Circle (30)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -942,7 +952,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.89, y: -12.030001, z: 0}
-  m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 186489943}
@@ -1076,6 +1086,11 @@ MonoBehaviour:
   knockbackForce: 5
   maxPushDistance: 5
   collisionTimer: 0
+  Acid: 0
+  Double: 0
+  Troy: 0
+  Bounce: 0
+  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
 --- !u!1 &159064655
 GameObject:
   m_ObjectHideFlags: 0
@@ -1225,7 +1240,7 @@ GameObject:
   - component: {fileID: 182031732}
   m_Layer: 3
   m_Name: Circle (22)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1240,7 +1255,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -8.55, z: 0}
-  m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 186489943}
@@ -1374,6 +1389,11 @@ MonoBehaviour:
   knockbackForce: 5
   maxPushDistance: 5
   collisionTimer: 0
+  Acid: 0
+  Double: 0
+  Troy: 0
+  Bounce: 0
+  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
 --- !u!1 &183752550
 GameObject:
   m_ObjectHideFlags: 0
@@ -1389,7 +1409,7 @@ GameObject:
   - component: {fileID: 183752555}
   m_Layer: 3
   m_Name: Circle (36)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1404,7 +1424,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.08, y: -10.610001, z: 0}
-  m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 186489943}
@@ -1538,6 +1558,11 @@ MonoBehaviour:
   knockbackForce: 5
   maxPushDistance: 5
   collisionTimer: 0
+  Acid: 0
+  Double: 0
+  Troy: 0
+  Bounce: 0
+  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
 --- !u!1 &186489942
 GameObject:
   m_ObjectHideFlags: 0
@@ -1547,6 +1572,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 186489943}
+  - component: {fileID: 186489944}
   m_Layer: 0
   m_Name: --BUBBLES
   m_TagString: BubbleParent
@@ -1563,11 +1589,11 @@ Transform:
   m_GameObject: {fileID: 186489942}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 11.26, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 525543468}
+  - {fileID: 5972620509794750787}
   - {fileID: 182031728}
   - {fileID: 1021017278}
   - {fileID: 1945972164}
@@ -1613,6 +1639,20 @@ Transform:
   - {fileID: 632104669}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &186489944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 186489942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdba56b0adeaa5e418ab7210d70085ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bubblesSpace: {fileID: 186489943}
+  bubbles: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
 --- !u!1 &187200287
 GameObject:
   m_ObjectHideFlags: 0
@@ -1793,7 +1833,7 @@ GameObject:
   - component: {fileID: 203524283}
   m_Layer: 3
   m_Name: Circle (17)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1808,7 +1848,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.08, y: -10.77, z: 0}
-  m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 186489943}
@@ -1942,6 +1982,11 @@ MonoBehaviour:
   knockbackForce: 5
   maxPushDistance: 5
   collisionTimer: 0
+  Acid: 0
+  Double: 0
+  Troy: 0
+  Bounce: 0
+  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
 --- !u!1 &222097232
 GameObject:
   m_ObjectHideFlags: 0
@@ -1957,7 +2002,7 @@ GameObject:
   - component: {fileID: 222097237}
   m_Layer: 3
   m_Name: Circle (32)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1972,7 +2017,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.18, y: -10.93, z: 0}
-  m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 186489943}
@@ -2106,6 +2151,11 @@ MonoBehaviour:
   knockbackForce: 5
   maxPushDistance: 5
   collisionTimer: 0
+  Acid: 0
+  Double: 0
+  Troy: 0
+  Bounce: 0
+  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
 --- !u!1 &230704368
 GameObject:
   m_ObjectHideFlags: 0
@@ -2257,7 +2307,7 @@ GameObject:
   - component: {fileID: 244055703}
   m_Layer: 3
   m_Name: Circle (4)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2272,7 +2322,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.89, y: -12.030001, z: 0}
-  m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 186489943}
@@ -2406,6 +2456,11 @@ MonoBehaviour:
   knockbackForce: 5
   maxPushDistance: 5
   collisionTimer: 0
+  Acid: 1
+  Double: 0
+  Troy: 1
+  Bounce: 0
+  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
 --- !u!1 &327336839
 GameObject:
   m_ObjectHideFlags: 0
@@ -2421,7 +2476,7 @@ GameObject:
   - component: {fileID: 327336844}
   m_Layer: 3
   m_Name: Circle (29)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2436,7 +2491,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.72, y: -12.030001, z: 0}
-  m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 186489943}
@@ -2570,6 +2625,11 @@ MonoBehaviour:
   knockbackForce: 5
   maxPushDistance: 5
   collisionTimer: 0
+  Acid: 0
+  Double: 0
+  Troy: 0
+  Bounce: 0
+  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
 --- !u!1 &346739644
 GameObject:
   m_ObjectHideFlags: 0
@@ -2585,7 +2645,7 @@ GameObject:
   - component: {fileID: 346739649}
   m_Layer: 3
   m_Name: Circle (41)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2600,7 +2660,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.18, y: -10.610001, z: 0}
-  m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 186489943}
@@ -2734,6 +2794,11 @@ MonoBehaviour:
   knockbackForce: 5
   maxPushDistance: 5
   collisionTimer: 0
+  Acid: 0
+  Double: 0
+  Troy: 0
+  Bounce: 0
+  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
 --- !u!1 &419947253
 GameObject:
   m_ObjectHideFlags: 0
@@ -2826,7 +2891,7 @@ GameObject:
   - component: {fileID: 425739266}
   m_Layer: 3
   m_Name: Circle (33)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2841,7 +2906,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.18, y: -10.93, z: 0}
-  m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 186489943}
@@ -2975,6 +3040,11 @@ MonoBehaviour:
   knockbackForce: 5
   maxPushDistance: 5
   collisionTimer: 0
+  Acid: 0
+  Double: 0
+  Troy: 0
+  Bounce: 0
+  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
 --- !u!1 &440288224
 GameObject:
   m_ObjectHideFlags: 0
@@ -2990,7 +3060,7 @@ GameObject:
   - component: {fileID: 440288229}
   m_Layer: 3
   m_Name: Circle (21)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3005,7 +3075,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.08, y: -9.64, z: 0}
-  m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 186489943}
@@ -3139,6 +3209,11 @@ MonoBehaviour:
   knockbackForce: 5
   maxPushDistance: 5
   collisionTimer: 0
+  Acid: 0
+  Double: 0
+  Troy: 0
+  Bounce: 0
+  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
 --- !u!1 &442570809
 GameObject:
   m_ObjectHideFlags: 0
@@ -3154,7 +3229,7 @@ GameObject:
   - component: {fileID: 442570814}
   m_Layer: 3
   m_Name: Circle (34)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3169,7 +3244,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.08, y: -10.77, z: 0}
-  m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 186489943}
@@ -3303,6 +3378,11 @@ MonoBehaviour:
   knockbackForce: 5
   maxPushDistance: 5
   collisionTimer: 0
+  Acid: 0
+  Double: 0
+  Troy: 0
+  Bounce: 0
+  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
 --- !u!1 &450131326
 GameObject:
   m_ObjectHideFlags: 0
@@ -3318,7 +3398,7 @@ GameObject:
   - component: {fileID: 450131331}
   m_Layer: 3
   m_Name: Circle (31)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3333,7 +3413,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.89, y: -12.030001, z: 0}
-  m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 186489943}
@@ -3467,6 +3547,11 @@ MonoBehaviour:
   knockbackForce: 5
   maxPushDistance: 5
   collisionTimer: 0
+  Acid: 0
+  Double: 0
+  Troy: 0
+  Bounce: 0
+  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
 --- !u!1 &513902585
 GameObject:
   m_ObjectHideFlags: 0
@@ -3515,7 +3600,7 @@ MonoBehaviour:
   randomRangeX: {x: -2, y: 2}
   yDistance: -10
   baseSpeed: 5
-  followRadius: 29
+  followRadius: 50
   separationWeight: 0.41
   avoidanceRadius: 1
   maxForce: 3.67
@@ -3533,7 +3618,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BubbleDamage: 5
-  doubleBubble: 0
+  doubleBubble: 1
   acidBubble: 0
   troiaBubble: 0
   bounceBubble: 0
@@ -3629,170 +3714,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &525543467
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 525543468}
-  - component: {fileID: 525543469}
-  - component: {fileID: 525543471}
-  - component: {fileID: 525543470}
-  - component: {fileID: 525543472}
-  m_Layer: 3
-  m_Name: Circle
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &525543468
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 525543467}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -15, z: 0}
-  m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
-  m_ConstrainProportionsScale: 1
-  m_Children: []
-  m_Father: {fileID: 186489943}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &525543469
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 525543467}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f8428c5f5196b76438cde8d2c1ff5595, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!58 &525543470
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 525543467}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
---- !u!50 &525543471
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 525543467}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &525543472
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 525543467}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8949c2891ba0279488f20cdcb28a1b76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  knockbackForce: 5
-  maxPushDistance: 5
-  collisionTimer: 0
 --- !u!1 &532234654
 GameObject:
   m_ObjectHideFlags: 0
@@ -3839,7 +3760,7 @@ GameObject:
   - component: {fileID: 577776186}
   m_Layer: 3
   m_Name: Circle (16)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3854,7 +3775,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.18, y: -10.93, z: 0}
-  m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 186489943}
@@ -3988,6 +3909,11 @@ MonoBehaviour:
   knockbackForce: 5
   maxPushDistance: 5
   collisionTimer: 0
+  Acid: 0
+  Double: 0
+  Troy: 0
+  Bounce: 0
+  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
 --- !u!1 &622209452
 GameObject:
   m_ObjectHideFlags: 0
@@ -4137,7 +4063,7 @@ GameObject:
   - component: {fileID: 632104673}
   m_Layer: 3
   m_Name: Circle (43)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4152,7 +4078,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.08, y: -9.64, z: 0}
-  m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 186489943}
@@ -4286,6 +4212,11 @@ MonoBehaviour:
   knockbackForce: 5
   maxPushDistance: 5
   collisionTimer: 0
+  Acid: 0
+  Double: 0
+  Troy: 0
+  Bounce: 0
+  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
 --- !u!1 &709712617
 GameObject:
   m_ObjectHideFlags: 0
@@ -4609,7 +4540,7 @@ GameObject:
   - component: {fileID: 744228397}
   m_Layer: 3
   m_Name: Circle (7)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4624,7 +4555,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.08, y: -10.610001, z: 0}
-  m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 186489943}
@@ -4758,6 +4689,11 @@ MonoBehaviour:
   knockbackForce: 5
   maxPushDistance: 5
   collisionTimer: 0
+  Acid: 0
+  Double: 0
+  Troy: 0
+  Bounce: 0
+  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
 --- !u!1 &790776097
 GameObject:
   m_ObjectHideFlags: 0
@@ -4773,7 +4709,7 @@ GameObject:
   - component: {fileID: 790776102}
   m_Layer: 3
   m_Name: Circle (9)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4788,7 +4724,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.18, y: -10.610001, z: 0}
-  m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 186489943}
@@ -4922,6 +4858,11 @@ MonoBehaviour:
   knockbackForce: 5
   maxPushDistance: 5
   collisionTimer: 0
+  Acid: 0
+  Double: 0
+  Troy: 0
+  Bounce: 0
+  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
 --- !u!1 &795585055
 GameObject:
   m_ObjectHideFlags: 0
@@ -4937,7 +4878,7 @@ GameObject:
   - component: {fileID: 795585060}
   m_Layer: 3
   m_Name: Circle (10)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4952,7 +4893,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.08, y: -9.64, z: 0}
-  m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 186489943}
@@ -5086,6 +5027,11 @@ MonoBehaviour:
   knockbackForce: 5
   maxPushDistance: 5
   collisionTimer: 0
+  Acid: 0
+  Double: 0
+  Troy: 0
+  Bounce: 0
+  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
 --- !u!1 &801991135
 GameObject:
   m_ObjectHideFlags: 0
@@ -5739,7 +5685,7 @@ GameObject:
   - component: {fileID: 933074081}
   m_Layer: 3
   m_Name: Circle (2)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5754,7 +5700,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.95, y: -12.030001, z: 0}
-  m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 186489943}
@@ -5888,6 +5834,11 @@ MonoBehaviour:
   knockbackForce: 5
   maxPushDistance: 5
   collisionTimer: 0
+  Acid: 0
+  Double: 0
+  Troy: 0
+  Bounce: 0
+  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
 --- !u!1 &955716230
 GameObject:
   m_ObjectHideFlags: 0
@@ -6237,7 +6188,7 @@ GameObject:
   - component: {fileID: 1021017282}
   m_Layer: 3
   m_Name: Circle (11)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6252,7 +6203,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -8.55, z: 0}
-  m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 186489943}
@@ -6386,6 +6337,11 @@ MonoBehaviour:
   knockbackForce: 5
   maxPushDistance: 5
   collisionTimer: 0
+  Acid: 0
+  Double: 0
+  Troy: 0
+  Bounce: 0
+  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
 --- !u!1 &1080560918
 GameObject:
   m_ObjectHideFlags: 0
@@ -6401,7 +6357,7 @@ GameObject:
   - component: {fileID: 1080560923}
   m_Layer: 3
   m_Name: Circle (27)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6416,7 +6372,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.95, y: -12.030001, z: 0}
-  m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 186489943}
@@ -6550,6 +6506,11 @@ MonoBehaviour:
   knockbackForce: 5
   maxPushDistance: 5
   collisionTimer: 0
+  Acid: 0
+  Double: 0
+  Troy: 0
+  Bounce: 0
+  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
 --- !u!1 &1103188003
 GameObject:
   m_ObjectHideFlags: 0
@@ -6699,7 +6660,7 @@ GameObject:
   - component: {fileID: 1110098994}
   m_Layer: 3
   m_Name: Circle (3)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6714,7 +6675,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.72, y: -12.030001, z: 0}
-  m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 186489943}
@@ -6848,6 +6809,11 @@ MonoBehaviour:
   knockbackForce: 5
   maxPushDistance: 5
   collisionTimer: 0
+  Acid: 0
+  Double: 0
+  Troy: 0
+  Bounce: 0
+  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
 --- !u!1 &1177818448
 GameObject:
   m_ObjectHideFlags: 0
@@ -7019,7 +6985,7 @@ GameObject:
   - component: {fileID: 1180505168}
   m_Layer: 3
   m_Name: Circle (20)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7034,7 +7000,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.18, y: -10.610001, z: 0}
-  m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 186489943}
@@ -7168,6 +7134,11 @@ MonoBehaviour:
   knockbackForce: 5
   maxPushDistance: 5
   collisionTimer: 0
+  Acid: 0
+  Double: 0
+  Troy: 0
+  Bounce: 0
+  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
 --- !u!1 &1202046521
 GameObject:
   m_ObjectHideFlags: 0
@@ -7183,7 +7154,7 @@ GameObject:
   - component: {fileID: 1202046526}
   m_Layer: 3
   m_Name: Circle (38)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7198,7 +7169,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.92, y: -10, z: 0}
-  m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 186489943}
@@ -7332,6 +7303,11 @@ MonoBehaviour:
   knockbackForce: 5
   maxPushDistance: 5
   collisionTimer: 0
+  Acid: 0
+  Double: 0
+  Troy: 0
+  Bounce: 0
+  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
 --- !u!1 &1235334016
 GameObject:
   m_ObjectHideFlags: 0
@@ -7503,7 +7479,7 @@ GameObject:
   - component: {fileID: 1236669454}
   m_Layer: 3
   m_Name: Circle (39)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7518,7 +7494,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.92, y: -10, z: 0}
-  m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 186489943}
@@ -7652,6 +7628,11 @@ MonoBehaviour:
   knockbackForce: 5
   maxPushDistance: 5
   collisionTimer: 0
+  Acid: 0
+  Double: 0
+  Troy: 0
+  Bounce: 0
+  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
 --- !u!1 &1271192618
 GameObject:
   m_ObjectHideFlags: 0
@@ -7667,7 +7648,7 @@ GameObject:
   - component: {fileID: 1271192623}
   m_Layer: 3
   m_Name: Circle (8)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7682,7 +7663,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.92, y: -10, z: 0}
-  m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 186489943}
@@ -7816,6 +7797,11 @@ MonoBehaviour:
   knockbackForce: 5
   maxPushDistance: 5
   collisionTimer: 0
+  Acid: 0
+  Double: 0
+  Troy: 0
+  Bounce: 0
+  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
 --- !u!1 &1279478850
 GameObject:
   m_ObjectHideFlags: 0
@@ -7996,7 +7982,7 @@ GameObject:
   - component: {fileID: 1325215757}
   m_Layer: 3
   m_Name: Circle (1)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8011,7 +7997,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.92, y: -12.030001, z: 0}
-  m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 186489943}
@@ -8145,6 +8131,11 @@ MonoBehaviour:
   knockbackForce: 5
   maxPushDistance: 5
   collisionTimer: 0
+  Acid: 0
+  Double: 0
+  Troy: 0
+  Bounce: 0
+  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
 --- !u!1 &1345241281
 GameObject:
   m_ObjectHideFlags: 0
@@ -8192,7 +8183,7 @@ GameObject:
   - component: {fileID: 1357810248}
   m_Layer: 3
   m_Name: Circle (12)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8207,7 +8198,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.92, y: -12.030001, z: 0}
-  m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 186489943}
@@ -8341,6 +8332,11 @@ MonoBehaviour:
   knockbackForce: 5
   maxPushDistance: 5
   collisionTimer: 0
+  Acid: 0
+  Double: 0
+  Troy: 0
+  Bounce: 0
+  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
 --- !u!1 &1358398934
 GameObject:
   m_ObjectHideFlags: 0
@@ -8356,7 +8352,7 @@ GameObject:
   - component: {fileID: 1358398939}
   m_Layer: 3
   m_Name: Circle (15)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8371,7 +8367,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.89, y: -12.030001, z: 0}
-  m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 186489943}
@@ -8505,6 +8501,11 @@ MonoBehaviour:
   knockbackForce: 5
   maxPushDistance: 5
   collisionTimer: 0
+  Acid: 0
+  Double: 0
+  Troy: 0
+  Bounce: 0
+  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
 --- !u!1 &1361258367
 GameObject:
   m_ObjectHideFlags: 0
@@ -9087,7 +9088,7 @@ GameObject:
   - component: {fileID: 1578461939}
   m_Layer: 3
   m_Name: Circle (6)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9102,7 +9103,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.08, y: -10.77, z: 0}
-  m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 186489943}
@@ -9236,6 +9237,11 @@ MonoBehaviour:
   knockbackForce: 5
   maxPushDistance: 5
   collisionTimer: 0
+  Acid: 0
+  Double: 0
+  Troy: 0
+  Bounce: 0
+  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
 --- !u!1 &1631688055
 GameObject:
   m_ObjectHideFlags: 0
@@ -9373,7 +9379,7 @@ GameObject:
   - component: {fileID: 1673743185}
   m_Layer: 3
   m_Name: Circle (5)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9388,7 +9394,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.18, y: -10.93, z: 0}
-  m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 186489943}
@@ -9522,6 +9528,11 @@ MonoBehaviour:
   knockbackForce: 5
   maxPushDistance: 5
   collisionTimer: 0
+  Acid: 0
+  Double: 0
+  Troy: 0
+  Bounce: 0
+  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
 --- !u!1 &1684600472
 GameObject:
   m_ObjectHideFlags: 0
@@ -9537,7 +9548,7 @@ GameObject:
   - component: {fileID: 1684600477}
   m_Layer: 3
   m_Name: Circle (18)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9552,7 +9563,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.08, y: -10.610001, z: 0}
-  m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 186489943}
@@ -9686,6 +9697,11 @@ MonoBehaviour:
   knockbackForce: 5
   maxPushDistance: 5
   collisionTimer: 0
+  Acid: 0
+  Double: 0
+  Troy: 0
+  Bounce: 0
+  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
 --- !u!1 &1690486515
 GameObject:
   m_ObjectHideFlags: 0
@@ -9701,7 +9717,7 @@ GameObject:
   - component: {fileID: 1690486520}
   m_Layer: 3
   m_Name: Circle (19)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9716,7 +9732,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.92, y: -10, z: 0}
-  m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 186489943}
@@ -9850,6 +9866,11 @@ MonoBehaviour:
   knockbackForce: 5
   maxPushDistance: 5
   collisionTimer: 0
+  Acid: 0
+  Double: 0
+  Troy: 0
+  Bounce: 0
+  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
 --- !u!1 &1719779782
 GameObject:
   m_ObjectHideFlags: 0
@@ -9932,7 +9953,7 @@ GameObject:
   - component: {fileID: 1931250802}
   m_Layer: 3
   m_Name: Circle (35)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9947,7 +9968,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.08, y: -10.77, z: 0}
-  m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 186489943}
@@ -10081,6 +10102,11 @@ MonoBehaviour:
   knockbackForce: 5
   maxPushDistance: 5
   collisionTimer: 0
+  Acid: 0
+  Double: 0
+  Troy: 0
+  Bounce: 0
+  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
 --- !u!1 &1934733097
 GameObject:
   m_ObjectHideFlags: 0
@@ -10173,7 +10199,7 @@ GameObject:
   - component: {fileID: 1936467870}
   m_Layer: 3
   m_Name: Circle (13)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10188,7 +10214,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.95, y: -12.030001, z: 0}
-  m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 186489943}
@@ -10322,6 +10348,11 @@ MonoBehaviour:
   knockbackForce: 5
   maxPushDistance: 5
   collisionTimer: 0
+  Acid: 0
+  Double: 0
+  Troy: 0
+  Bounce: 0
+  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
 --- !u!1 &1937612295
 GameObject:
   m_ObjectHideFlags: 0
@@ -10337,7 +10368,7 @@ GameObject:
   - component: {fileID: 1937612300}
   m_Layer: 3
   m_Name: Circle (24)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10352,7 +10383,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.92, y: -12.030001, z: 0}
-  m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 186489943}
@@ -10486,6 +10517,11 @@ MonoBehaviour:
   knockbackForce: 5
   maxPushDistance: 5
   collisionTimer: 0
+  Acid: 0
+  Double: 0
+  Troy: 0
+  Bounce: 0
+  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
 --- !u!1 &1938318694
 GameObject:
   m_ObjectHideFlags: 0
@@ -10501,7 +10537,7 @@ GameObject:
   - component: {fileID: 1938318699}
   m_Layer: 3
   m_Name: Circle (14)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10516,7 +10552,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.72, y: -12.030001, z: 0}
-  m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 186489943}
@@ -10650,6 +10686,11 @@ MonoBehaviour:
   knockbackForce: 5
   maxPushDistance: 5
   collisionTimer: 0
+  Acid: 0
+  Double: 0
+  Troy: 0
+  Bounce: 0
+  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
 --- !u!1 &1945972163
 GameObject:
   m_ObjectHideFlags: 0
@@ -10665,7 +10706,7 @@ GameObject:
   - component: {fileID: 1945972168}
   m_Layer: 3
   m_Name: Circle (23)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10680,7 +10721,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -8.55, z: 0}
-  m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 186489943}
@@ -10814,6 +10855,11 @@ MonoBehaviour:
   knockbackForce: 5
   maxPushDistance: 5
   collisionTimer: 0
+  Acid: 0
+  Double: 0
+  Troy: 0
+  Bounce: 0
+  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
 --- !u!1 &1957643840
 GameObject:
   m_ObjectHideFlags: 0
@@ -10829,7 +10875,7 @@ GameObject:
   - component: {fileID: 1957643845}
   m_Layer: 3
   m_Name: Circle (42)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10844,7 +10890,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.08, y: -9.64, z: 0}
-  m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 186489943}
@@ -10978,6 +11024,11 @@ MonoBehaviour:
   knockbackForce: 5
   maxPushDistance: 5
   collisionTimer: 0
+  Acid: 0
+  Double: 0
+  Troy: 0
+  Bounce: 0
+  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
 --- !u!1 &1964083297
 GameObject:
   m_ObjectHideFlags: 0
@@ -11225,7 +11276,7 @@ GameObject:
   - component: {fileID: 2013281197}
   m_Layer: 3
   m_Name: Circle (26)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11240,7 +11291,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.95, y: -12.030001, z: 0}
-  m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 186489943}
@@ -11374,6 +11425,11 @@ MonoBehaviour:
   knockbackForce: 5
   maxPushDistance: 5
   collisionTimer: 0
+  Acid: 0
+  Double: 0
+  Troy: 0
+  Bounce: 0
+  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
 --- !u!1 &2029699134
 GameObject:
   m_ObjectHideFlags: 0
@@ -11546,7 +11602,7 @@ GameObject:
   - component: {fileID: 2033117389}
   m_Layer: 3
   m_Name: Circle (28)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11561,7 +11617,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.72, y: -12.030001, z: 0}
-  m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 186489943}
@@ -11695,6 +11751,11 @@ MonoBehaviour:
   knockbackForce: 5
   maxPushDistance: 5
   collisionTimer: 0
+  Acid: 0
+  Double: 0
+  Troy: 0
+  Bounce: 0
+  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
 --- !u!1 &2082482202
 GameObject:
   m_ObjectHideFlags: 0
@@ -11843,7 +11904,7 @@ GameObject:
   - component: {fileID: 2107326937}
   m_Layer: 3
   m_Name: Circle (25)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11858,7 +11919,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.92, y: -12.030001, z: 0}
-  m_LocalScale: {x: 0.19999999, y: 0.19999999, z: 0.19999999}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 186489943}
@@ -11992,6 +12053,180 @@ MonoBehaviour:
   knockbackForce: 5
   maxPushDistance: 5
   collisionTimer: 0
+  Acid: 0
+  Double: 0
+  Troy: 0
+  Bounce: 0
+  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
+--- !u!50 &558261798170396252
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5943583126331318112}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!212 &2602099328434913845
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5943583126331318112}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: f8428c5f5196b76438cde8d2c1ff5595, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!58 &4321412689585110742
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5943583126331318112}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
+--- !u!114 &5742293392409882786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5943583126331318112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8949c2891ba0279488f20cdcb28a1b76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  knockbackForce: 5
+  maxPushDistance: 5
+  collisionTimer: 0
+  Acid: 0
+  Double: 0
+  Troy: 0
+  Bounce: 0
+  bubbleClone: {fileID: 5943583126331318112}
+--- !u!1 &5943583126331318112
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5972620509794750787}
+  - component: {fileID: 2602099328434913845}
+  - component: {fileID: 558261798170396252}
+  - component: {fileID: 4321412689585110742}
+  - component: {fileID: 5742293392409882786}
+  m_Layer: 3
+  m_Name: Circle
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5972620509794750787
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5943583126331318112}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -15, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 186489943}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -11999,12 +12234,12 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 1910553370}
   - {fileID: 2012534717}
+  - {fileID: 1574356990}
+  - {fileID: 1279478851}
   - {fileID: 1345241282}
   - {fileID: 189570113}
   - {fileID: 186489943}
   - {fileID: 532234655}
-  - {fileID: 1574356990}
-  - {fileID: 1279478851}
   - {fileID: 77549731}
   - {fileID: 1719779783}
   - {fileID: 955716233}

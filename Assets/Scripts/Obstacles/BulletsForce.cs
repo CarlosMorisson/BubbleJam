@@ -17,7 +17,7 @@ public class BulletsForce : MonoBehaviour
     private void OnEnable()
     {
         origin = this.gameObject.transform.parent.parent.GetChild(1);
-        Debug.Log(origin.name);
+      //  Debug.Log(origin.name);
         direction = origin.right;//this.gameObject.transform.parent.eulerAngles;
         this.gameObject.GetComponent<Rigidbody2D>().AddForce(direction * forceScale, ForceMode2D.Impulse);
         StartCoroutine(BulletDestroy());

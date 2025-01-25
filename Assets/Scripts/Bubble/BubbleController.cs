@@ -8,6 +8,7 @@ public class BubbleController : MonoBehaviour
     private Transform bubblesParent;
     private GameObject[] bubbles;
 
+
     [Header("Damage")]
     [SerializeField] [Tooltip("How much Damage a bubble give")]
     private float BubbleDamage;
@@ -62,6 +63,10 @@ public class BubbleController : MonoBehaviour
             {
                 bubbles[i] = bubblesParent.GetChild(i).gameObject;
                 bubbles[i].GetComponent<BubbleCollider>().bubbleDamage = BubbleDamage;
+                bubbles[i].GetComponent<BubbleCollider>().Acid = acidBubble;
+                bubbles[i].GetComponent<BubbleCollider>().Double = doubleBubble;
+                bubbles[i].GetComponent<BubbleCollider>().Troy = troiaBubble;
+                bubbles[i].GetComponent<BubbleCollider>().Bounce = bounceBubble;
             }
         }
     }
