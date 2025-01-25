@@ -10,7 +10,9 @@ public class GameController : MonoBehaviour
     public enum GameState
     {
         Store, 
-        Game
+        Game,
+        End,
+        Victory
     }
     public GameState State;
 
@@ -24,6 +26,10 @@ public class GameController : MonoBehaviour
     public void StartGame()
     {
         GetGameState(GameState.Game);
+    }
+    public void StoreGame()
+    {
+        GetGameState(GameState.Store);
     }
 
     public void GetGameState(GameState state)

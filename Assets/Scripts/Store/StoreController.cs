@@ -12,7 +12,7 @@ public class StoreController : MonoBehaviour
     private void Start()
     {
         Instance = this;
-        GameController.OnGameStateChanged -= HandleGameStateChange;
+        GameController.OnGameStateChanged += HandleGameStateChange;
         // Carregar o valor do jogador do PlayerPrefs (se necessário)
         playerCoins = PlayerPrefs.GetInt("PlayerCoins", 0);
 
@@ -30,6 +30,12 @@ public class StoreController : MonoBehaviour
     }
     private void HandleGameStateChange(GameController.GameState newState)
     {
+        
+        if(GameController.GameState.Store == newState)
+        {
+            StoreView.Instance.StoreCanva.SetActive(true);
+            Debug.Log("debuguei");
+        }
         PlayerPrefs.SetInt("PlayerCoins", playerCoins);
     }
     public void VerifyToMonetize(int bubbleCount)

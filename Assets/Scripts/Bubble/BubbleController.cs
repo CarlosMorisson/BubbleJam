@@ -47,6 +47,8 @@ public class BubbleController : MonoBehaviour
             Debug.LogError("Bubbles Parent não foi encontrado!");
             return 0; // Retorna 0 em caso de erro
         }
+        if (CountActiveBubbles() <= 0)
+            GameController.Instance.GetGameState(GameController.GameState.End);
         return CountActiveBubbles();
     }
     void Start()
@@ -62,6 +64,7 @@ public class BubbleController : MonoBehaviour
             {
                 bubbles[i] = bubblesParent.GetChild(i).gameObject;
                 bubbles[i].GetComponent<BubbleCollider>().bubbleDamage = BubbleDamage;
+                //
             }
         }
     }
