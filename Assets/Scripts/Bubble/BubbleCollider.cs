@@ -91,7 +91,7 @@ public class BubbleCollider : MonoBehaviour
         }
         else if (collision.CompareTag("Enemy"))
         {
-
+            ApplyDamage();
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -109,7 +109,11 @@ public class BubbleCollider : MonoBehaviour
         }
     }
     #endregion
-
+    void ApplyDamage()
+    {
+        BossController.OnTakeDamage.Invoke((int)bubbleDamage);
+        TakeDamage();
+    }
     void  TakeDamage()
     {
         if(imunity)
@@ -147,6 +151,7 @@ public class BubbleCollider : MonoBehaviour
     {
 
        BubbleInstance.Instance.BubbleInstace(this.gameObject.transform);
+
 
     }
 }

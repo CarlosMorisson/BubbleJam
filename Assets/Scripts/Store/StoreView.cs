@@ -9,7 +9,13 @@ public class StoreView : MonoBehaviour
 {
     public static StoreView Instance;
     [Header("Coins")]
-    [SerializeField] private TextMeshProUGUI coinsText;
+
+    [SerializeField]
+    private TextMeshProUGUI coinsText;
+    [SerializeField]
+    public GameObject StoreCanva;
+
+    private bool showDescription;
 
     private GameObject _descriptionPanel;
     private Button _buyButton;
