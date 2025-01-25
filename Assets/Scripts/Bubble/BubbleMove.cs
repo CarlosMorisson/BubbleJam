@@ -21,6 +21,7 @@ public class BubbleMovement : MonoBehaviour
     {
         Instance = this;
     }
+  
     public void NewBubble()
     {
         bubblesParent = GameObject.FindGameObjectWithTag("BubbleParent").transform;

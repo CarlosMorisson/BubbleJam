@@ -26,7 +26,7 @@ public class LevelController : MonoBehaviour
     private float despawnY = -10f;
 
     [SerializeField]
-    private int initialBlocks = 5;
+    private int initialBlocks = 20;
 
     private int blocksSpawned = 0;
     private bool specialBlockSpawned = false;
