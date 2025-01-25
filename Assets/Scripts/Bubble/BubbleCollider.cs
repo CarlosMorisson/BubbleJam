@@ -50,7 +50,7 @@ public class BubbleCollider : MonoBehaviour
         // Verifica se o objeto que entrou no trigger tem a tag "Fan"
         if (collision.CompareTag("Fan"))
         {
-            // Calcula a direÁ„o *contr·ria* ao centro do collider do "Fan"
+            // Calcula a dire√ß√£o *contr√°ria* ao centro do collider do "Fan"
             Vector2 knockbackDirection = transform.position - collision.transform.position;
             knockbackDirection.Normalize();
 
@@ -119,6 +119,7 @@ public class BubbleCollider : MonoBehaviour
 
         }
      
+
       
       
     }
