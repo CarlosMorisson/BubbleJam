@@ -150,7 +150,7 @@ public class BubbleCollider : MonoBehaviour
         }
         else if (collision.CompareTag("Enemy"))
         {
-
+            ApplyDamage();
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -168,12 +168,16 @@ public class BubbleCollider : MonoBehaviour
         }
     }
     #endregion
-
+    void ApplyDamage()
+    {
+        BossModel.OnTakeDamage.Invoke((int)bubbleDamage);
+        TakeDamage();
+    }
     void  TakeDamage()
     {
         if(imunity)
         {
-            DamageController.OnTakeDamage.Invoke(0);
+            DamageController.OnTakeDamage.Invoke();
             this.gameObject.SetActive(false);
 
         }
@@ -223,6 +227,7 @@ public class BubbleCollider : MonoBehaviour
       
             yield return new WaitForSeconds(2);
             rb.velocity = Vector2.zero;
+
 
 
 
