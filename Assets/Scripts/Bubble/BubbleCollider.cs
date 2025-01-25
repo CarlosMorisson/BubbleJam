@@ -77,8 +77,7 @@ public class BubbleCollider : MonoBehaviour
 
     void  TakeDamage()
     {
-     
-        DamageController.OnTakeDamage.Invoke(0);
+        DamageController.OnBubbleTakeDamage();
         this.gameObject.SetActive(false);
       
     }

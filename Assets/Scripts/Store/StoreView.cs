@@ -3,42 +3,48 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using NEO.UiAnimations;
 
 public class StoreView : MonoBehaviour
 {
     public static StoreView Instance;
     [Header("Coins")]
-    [SerializeField]
-    private TextMeshProUGUI coinsText;
+    [SerializeField] private TextMeshProUGUI coinsText;
 
-    private bool showDescription;
-
+    private GameObject _descriptionPanel;
+    private Button _buyButton;
     void Start()
     {
+        PlayerPrefs.DeleteAll();
         Instance = this;
     }
    
     public void CheckDescription(BuySkill buy)
     {
-        showDescription = !showDescription;
-        buy.DescriptionPanel.gameObject.SetActive(showDescription);
-        //if(descriptionPanel)
-        //Efeito DoTween
-        //else
-        //EfeitoDoTween
-        buy.DescriptionPanel.GetComponentInChildren<TextMeshProUGUI>().text = "<b> " + buy.skillName + " : </b>" + buy.Descrition;
+        _descriptionPanel = buy.DescriptionPanel;
+
+        RectTransform description = _descriptionPanel.transform as RectTransform;
+        bool isOn = buy.GetComponent<Toggle>().isOn;
+
+        if (isOn)
+            description.NEOBounceIn(duration: 0.3f);
+        else
+            description.NEOBounceOut(duration: 0.3f);
+
+        _descriptionPanel.GetComponentInChildren<TextMeshProUGUI>().text = "<b> " + buy.skillName + " : </b>" + buy.Descrition;
     }
 
     public void CheckItensThatCanBuy(BuySkill buy)
     {
+        _buyButton = buy.BuyButton.GetComponent<Button>();
         if (buy.purchaseTime == buy.maxPurchase)
         {
-            buy.BuyButton.GetComponent<Button>().interactable = false;
-            buy.BuyButton.GetComponentInChildren<TextMeshProUGUI>().text="Comprado";
+            _buyButton.interactable = false;
+            _buyButton.GetComponentInChildren<TextMeshProUGUI>().text="Comprado";
         }
         else
         {
-            buy.BuyButton.GetComponentInChildren<TextMeshProUGUI>().text = buy.skillPrice.ToString();
+            _buyButton.GetComponentInChildren<TextMeshProUGUI>().text = buy.skillPrice.ToString();
             //Colocar imagem representado vezes que comprou
         }
     }
