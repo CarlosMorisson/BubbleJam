@@ -48,9 +48,9 @@ public class BubbleController : MonoBehaviour
             Debug.LogError("Bubbles Parent não foi encontrado!");
             return 0; // Retorna 0 em caso de erro
         }
-        if (CountActiveBubbles() <= 0 && BossController.Instance.bossLife >0)
+        if (CountActiveBubbles() <= 0 && BossModel.Instance.bossLife >0)
             GameController.Instance.GetGameState(GameController.GameState.End);
-        else if(CountActiveBubbles() <= 0 && BossController.Instance.bossLife <= 0)
+        else if(CountActiveBubbles() <= 0 && BossModel.Instance.bossLife <= 0)
             GameController.Instance.GetGameState(GameController.GameState.Victory);
         return CountActiveBubbles();
     }

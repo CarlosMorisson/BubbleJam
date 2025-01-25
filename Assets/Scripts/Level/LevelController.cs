@@ -147,7 +147,8 @@ public class LevelController : MonoBehaviour
 
         if (blocksSpawned >= specialBlockSpawnInterval && !specialBlockSpawned)
         {
-            newBlock = Instantiate(specialBlockPrefab, blockParent);
+            specialBlockPrefab.SetActive(true);
+            newBlock = specialBlockPrefab;
             specialBlockSpawned = true;
         }
         else
