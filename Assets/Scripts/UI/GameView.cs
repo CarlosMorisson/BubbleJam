@@ -9,6 +9,9 @@ public class GameView : MonoBehaviour
     public static GameView Instance;
     [SerializeField]
     private GameObject finalGamePanel;
+
+    [SerializeField]
+    private Image healthBarImage;
     void Start()
     {
         Instance = this;
@@ -30,5 +33,9 @@ public class GameView : MonoBehaviour
             //MostrarVitoria
         }
     }
-
+    public void SetHealth(float health, float maxHealth)
+    {
+        health = Mathf.Clamp(health, 0, maxHealth);
+        healthBarImage.fillAmount = health / maxHealth;
+    }
 }
