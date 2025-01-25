@@ -8,12 +8,12 @@ public class AudioView : MonoBehaviour
     [SerializeField] private RectTransform _audioConfigPanel;
     public void OpenAudioConfig()
     {
-        _audioConfigPanel.NEOBounceIn(duration: 1f);
+        _audioConfigPanel.NEOBounceIn(duration: 0.3f);
     }
 
     public void CloseAudioConfig()
     {
-        _audioConfigPanel.NEOBounceOut(duration: 0.5f);
+        _audioConfigPanel.NEOBounceOut(duration: 0.2f);
     }
     public void VolumeMusicSlider(float volume)
     {

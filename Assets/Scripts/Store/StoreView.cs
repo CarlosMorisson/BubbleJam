@@ -13,17 +13,18 @@ public class StoreView : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI coinsText;
     [SerializeField] public GameObject StoreCanva;
-    [SerializeField] private RectTransform _storeItensContainer, _descriptionsContainer, _bequer, _start;
+    [SerializeField] private RectTransform _storeItensContainer, _descriptionsContainer, _bequer, _startButton,_table;
 
-    private Vector3 _storeItensInitialPosition, _descriptionsInitialPosition, _bequerInitialPosition, _startInitialPosition;
+    private Vector3 _storeItensInitialPosition, _descriptionsInitialPosition, _bequerInitialPosition, _startInitialPosition,_tableInitialPos;
     void Start()
     {
+        PlayerPrefs.DeleteAll();
         Instance = this;
 
         _storeItensInitialPosition = _storeItensContainer.anchoredPosition;
         _descriptionsInitialPosition = _descriptionsContainer.anchoredPosition;
         _bequerInitialPosition = _bequer.anchoredPosition;
-        _startInitialPosition = _start.anchoredPosition;
+        _startInitialPosition = _startButton.anchoredPosition;
 
     }
    
@@ -79,10 +80,13 @@ public class StoreView : MonoBehaviour
         sequence.Insert(delayBetween, _descriptionsContainer.DOAnchorPosY(-Screen.height, duration).SetEase(Ease.InOutQuad));
         sequence.Insert(delayBetween, _bequer.DOShakeAnchorPos(delayBetween*4, strength: new Vector2(10f, 0), vibrato: 20, randomness: 90));
 
+        sequence.InsertCallback(delayBetween * 2.5f, () => _bequer.GetComponent<ParticleSystem>().Play());
         sequence.InsertCallback(delayBetween * 3, () => GameController.Instance.StartGame());
         sequence.Insert(delayBetween * 3, _bequer.DOAnchorPosY(-Screen.height, duration).SetEase(Ease.InOutQuad));
-        sequence.Insert(0, _start.DOAnchorPosY(-Screen.height, duration).SetEase(Ease.InOutQuad));
-        
+        sequence.Insert(delayBetween * 4, _table.DOAnchorPosY(-Screen.height, duration).SetEase(Ease.InOutQuad));
+        sequence.InsertCallback(0, () => _startButton.anchoredPosition = new Vector2(0, -Screen.height)).OnStart(() => _startButton.GetComponent<ParticleSystem>().Play()).OnComplete(() => _startButton.GetComponent<ParticleSystem>().Stop());
+        sequence.Insert(delayBetween, Camera.main.DOShakeRotation(delayBetween * 3, strength: new Vector2(1f, 1f), vibrato: 20, randomness: 90));
+
     }
 
     public void BackStoreButtons()
@@ -95,6 +99,6 @@ public class StoreView : MonoBehaviour
         sequence.Insert(duration + delayBetween, _storeItensContainer.DOAnchorPosY(_storeItensInitialPosition.y, duration).SetEase(Ease.InOutQuad));
         sequence.Insert(duration + delayBetween, _descriptionsContainer.DOAnchorPosY(_descriptionsInitialPosition.y, duration).SetEase(Ease.InOutQuad));
         sequence.Insert(duration + delayBetween * 2, _bequer.DOAnchorPosY(_bequerInitialPosition.y, duration).SetEase(Ease.InOutQuad));
-        sequence.Insert(duration, _start.DOAnchorPosY(_startInitialPosition.y, duration).SetEase(Ease.InOutQuad));
+        sequence.Insert(duration, _startButton.DOAnchorPosY(_startInitialPosition.y, duration).SetEase(Ease.InOutQuad));
     }
 }
