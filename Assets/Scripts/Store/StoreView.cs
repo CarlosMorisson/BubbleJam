@@ -33,10 +33,15 @@ public class StoreView : MonoBehaviour
         bool isOn = buy.GetComponent<Toggle>().isOn;
 
         if (isOn)
+        {
+            description.gameObject.SetActive(true);
             description.NEOBounceIn(duration: 0.3f);
+        }
         else
+        {
             description.NEOBounceOut(duration: 0.3f);
-
+            description.gameObject.SetActive(false);
+        }
         _descriptionPanel.GetComponentInChildren<TextMeshProUGUI>().text = "<b> " + buy.skillName + " : </b>" + buy.Descrition;
     }
 
