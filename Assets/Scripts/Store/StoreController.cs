@@ -34,7 +34,7 @@ public class StoreController : MonoBehaviour
         
         if(GameController.GameState.Store == newState)
         {
-            StoreView.Instance.StoreCanva.SetActive(true);
+            StoreView.Instance.BackStoreButtons();
             Debug.Log("debuguei");
         }
         PlayerPrefs.SetInt("PlayerCoins", playerCoins);
