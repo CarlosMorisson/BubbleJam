@@ -20,22 +20,31 @@ public class BubbleCollider : MonoBehaviour
     [Header("Bubble improvement")]
     public bool Acid, Double, Troy, Bounce;
 
-    private bool imunity;
+    public bool imunity;
 
-    [SerializeField]
-    GameObject bubbleClone;
-
+   
 
    
 
     private Rigidbody2D rb;
+    private void OnEnable()
+    {
+        Acid = false;
+        Double = false;
+        Troy = false;
+        Bounce = false;
+      
+     
+    }
 
-   
+
     private void Start()
     {
+       
         rb = GetComponent<Rigidbody2D>();
         //Fazer com que novas bolhas nao sejam imediatamente destruidas quando ocorrer colisao
         StartCoroutine(EnableCollision());
+      
     }
     private IEnumerator EnableCollision()
     {
@@ -64,14 +73,16 @@ public class BubbleCollider : MonoBehaviour
             if(Troy)
             {
                 Troy = false;
-                StartCoroutine(Imunity());
+                ImunityBubble();
+
+
                 StartCoroutine(TroyImpruvment());
             
             }
             else if(Acid)
             {
                 Acid = false;
-                StartCoroutine(Imunity());
+                ImunityBubble();
             }
             else if(Bounce)
             {
@@ -138,19 +149,27 @@ public class BubbleCollider : MonoBehaviour
 
 
     }
+
+    public void ImunityBubble()
+    {
+        StartCoroutine(Imunity());
+    }
     IEnumerator Imunity()
     {
         imunity = false;
        
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
         imunity = true;
 
     }
 
     void DoubleBooble()
     {
+       
+        BubbleInstance.Instance.BubbleInstace(this.gameObject.transform);
+       
+        this.gameObject.SetActive(false);
 
-       BubbleInstance.Instance.BubbleInstace(this.gameObject.transform);
 
 
     }
