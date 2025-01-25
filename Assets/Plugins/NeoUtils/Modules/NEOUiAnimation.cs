@@ -43,6 +43,8 @@ namespace NEO.UiAnimations
             .OnComplete(() =>
             {
                 canvasGroup.enabled = true;
+                canvasGroup.interactable = true;
+                canvasGroup.blocksRaycasts = true;
             });
         }
         ///<summary> 
@@ -320,6 +322,8 @@ namespace NEO.UiAnimations
             {
                 canvasGroup.alpha = 0;
                 rectTransform.localScale = originalScale;
+                canvasGroup.interactable = false;
+                canvasGroup.blocksRaycasts = false;
             });
         }
         ///<summary> 
