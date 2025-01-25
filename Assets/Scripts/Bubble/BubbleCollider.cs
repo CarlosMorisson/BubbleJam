@@ -1,6 +1,7 @@
-using System;
+//using System;
 using System.Collections;
-using System.Collections.Generic;
+using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class BubbleCollider : MonoBehaviour
@@ -16,6 +17,15 @@ public class BubbleCollider : MonoBehaviour
     [SerializeField] [Tooltip("Time To enable bubble collision")]
     private float collisionTimer = 2;
     public float bubbleDamage { private get; set; }
+    [Header("Bubble improvement")]
+    public bool Acid, Double, Troy, Bounce;
+
+    private bool imunity;
+
+    [SerializeField]
+    GameObject bubbleClone;
+
+
    
 
     private Rigidbody2D rb;
@@ -40,7 +50,7 @@ public class BubbleCollider : MonoBehaviour
         // Verifica se o objeto que entrou no trigger tem a tag "Fan"
         if (collision.CompareTag("Fan"))
         {
-            // Calcula a direÁ„o *contr·ria* ao centro do collider do "Fan"
+            // Calcula a dire√ß√£o *contr√°ria* ao centro do collider do "Fan"
             Vector2 knockbackDirection = transform.position - collision.transform.position;
             knockbackDirection.Normalize();
 
@@ -51,8 +61,33 @@ public class BubbleCollider : MonoBehaviour
         }
         else if (collision.CompareTag("Damage"))
         {
-
-            TakeDamage();
+            if(Troy)
+            {
+                Troy = false;
+                StartCoroutine(Imunity());
+                StartCoroutine(TroyImpruvment());
+            
+            }
+            else if(Acid)
+            {
+                Acid = false;
+                StartCoroutine(Imunity());
+            }
+            else if(Bounce)
+            {
+                Bounce=false;
+            }
+            else if(Double)
+            {
+                Double=false;
+                DoubleBooble();
+              
+            }
+            else
+            {
+                TakeDamage();
+            }
+           
         }
         else if (collision.CompareTag("Enemy"))
         {
@@ -77,8 +112,41 @@ public class BubbleCollider : MonoBehaviour
 
     void  TakeDamage()
     {
-        DamageController.OnBubbleTakeDamage();
-        this.gameObject.SetActive(false);
+        if(imunity)
+        {
+            DamageController.OnTakeDamage.Invoke(0);
+            this.gameObject.SetActive(false);
+
+        }
+     
+
       
+      
+    }
+    IEnumerator TroyImpruvment()
+    {
+        this.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+        yield return new WaitForSeconds(1);
+        this.gameObject.GetComponent<SpriteRenderer>().color =Color.white;
+        this.gameObject.transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+
+
+
+
+    }
+    IEnumerator Imunity()
+    {
+        imunity = false;
+       
+        yield return new WaitForSeconds(1);
+        imunity = true;
+
+    }
+
+    void DoubleBooble()
+    {
+
+       BubbleInstance.Instance.BubbleInstace(this.gameObject.transform);
+
     }
 }
