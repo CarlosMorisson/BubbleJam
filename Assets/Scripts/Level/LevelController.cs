@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
 public class LevelController : MonoBehaviour
 {
@@ -47,6 +48,16 @@ public class LevelController : MonoBehaviour
     [SerializeField]
     private float timeBetweenSpawns = 2f;
 
+    [Header("Post Process Control")]
+    [SerializeField]
+    public PostProcessVolume volume; // Referência ao volume de pós-processamento
+    [SerializeField]
+    public float maxIntensity = 0.8f; // Intensidade máxima da vinheta
+    [SerializeField]
+    public float increaseSpeed = 0.1f; // Velocidade de aumento da intensidade
+    [SerializeField]
+    private Vignette vignette;
+
     private float timeSinceLastSpawn = 0f;
 
     private List<GameObject> activeBlocks = new List<GameObject>();
@@ -66,6 +77,10 @@ public class LevelController : MonoBehaviour
         if (newState == GameController.GameState.Game)
         {
             StartLevel();
+            if (volume != null)
+            {
+                volume.profile.TryGetSettings(out vignette);
+            }
         }
         else
         {
@@ -73,6 +88,11 @@ public class LevelController : MonoBehaviour
             foreach (var block in activeBlocks)
             {
                 Destroy(block);
+            }
+            if (volume != null)
+            {
+                volume.profile.TryGetSettings(out vignette);
+                vignette.intensity.value =0;
             }
             activeBlocks.Clear();
             specialBlockSpawned = false;
@@ -109,6 +129,12 @@ public class LevelController : MonoBehaviour
     {
         while (true)
         {
+            if (vignette != null)
+            {
+                vignette.intensity.value += increaseSpeed * Time.deltaTime;
+                vignette.intensity.value = Mathf.Clamp(vignette.intensity.value, 0, maxIntensity);
+                Debug.Log(vignette.intensity.value);
+            }
             if (GameController.Instance.State == GameController.GameState.Game)
             {
                 yield return new WaitForSeconds(timeBetweenSpawns);
