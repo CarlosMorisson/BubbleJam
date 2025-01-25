@@ -126,7 +126,7 @@ public class LevelController : MonoBehaviour
         // Verifica se os blocos saíram da tela e os destrói
         for (int i = activeBlocks.Count - 1; i >= 0; i--)
         {
-            if (activeBlocks[i].transform.position.y < despawnY)
+            if (activeBlocks[i].transform.position.y < despawnY || specialBlockSpawned)
             {
                 Destroy(activeBlocks[i]);
                 activeBlocks.RemoveAt(i);
@@ -148,7 +148,7 @@ public class LevelController : MonoBehaviour
         if (blocksSpawned >= specialBlockSpawnInterval && !specialBlockSpawned)
         {
             specialBlockPrefab.SetActive(true);
-            newBlock = specialBlockPrefab;
+            
             specialBlockSpawned = true;
         }
         else
@@ -157,16 +157,12 @@ public class LevelController : MonoBehaviour
             GameObject selectedPrefab = blockPrefabs[randomIndex];
 
             newBlock = Instantiate(selectedPrefab, blockParent);
-            newBlock.transform.position = new Vector3(Random.Range(randomRangeX.x, randomRangeX.y), spawnY, 0);
+            newBlock.transform.position = new Vector3(0, spawnY, 0);
             newBlock.GetComponent<ObstacleMovemment>().Speed = ObstacleAcceleration();
             blocksSpawned++;
+            activeBlocks.Add(newBlock);
         }
-        activeBlocks.Add(newBlock);
-
-        float randomX = Random.Range(randomRangeX.x, randomRangeX.y);
-        Vector3 newPosition = newBlock.transform.position;
-        newPosition.x = randomX;
-        newBlock.transform.position = newPosition;
+        
     }
 
     private float ObstacleAcceleration()
