@@ -574,7 +574,7 @@ MonoBehaviour:
   Double: 0
   Troy: 0
   Bounce: 0
-  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
+  imunity: 1
 --- !u!1 &98654639
 GameObject:
   m_ObjectHideFlags: 0
@@ -743,7 +743,7 @@ MonoBehaviour:
   Double: 0
   Troy: 0
   Bounce: 0
-  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
+  imunity: 1
 --- !u!1 &120847280
 GameObject:
   m_ObjectHideFlags: 0
@@ -1090,7 +1090,7 @@ MonoBehaviour:
   Double: 0
   Troy: 0
   Bounce: 0
-  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
+  imunity: 1
 --- !u!1 &159064655
 GameObject:
   m_ObjectHideFlags: 0
@@ -1393,7 +1393,7 @@ MonoBehaviour:
   Double: 0
   Troy: 0
   Bounce: 0
-  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
+  imunity: 1
 --- !u!1 &183752550
 GameObject:
   m_ObjectHideFlags: 0
@@ -1562,7 +1562,7 @@ MonoBehaviour:
   Double: 0
   Troy: 0
   Bounce: 0
-  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
+  imunity: 1
 --- !u!1 &186489942
 GameObject:
   m_ObjectHideFlags: 0
@@ -1986,7 +1986,7 @@ MonoBehaviour:
   Double: 0
   Troy: 0
   Bounce: 0
-  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
+  imunity: 1
 --- !u!1 &222097232
 GameObject:
   m_ObjectHideFlags: 0
@@ -2155,7 +2155,7 @@ MonoBehaviour:
   Double: 0
   Troy: 0
   Bounce: 0
-  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
+  imunity: 1
 --- !u!1 &230704368
 GameObject:
   m_ObjectHideFlags: 0
@@ -2456,11 +2456,11 @@ MonoBehaviour:
   knockbackForce: 5
   maxPushDistance: 5
   collisionTimer: 0
-  Acid: 1
+  Acid: 0
   Double: 0
-  Troy: 1
+  Troy: 0
   Bounce: 0
-  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
+  imunity: 1
 --- !u!1 &327336839
 GameObject:
   m_ObjectHideFlags: 0
@@ -2629,7 +2629,7 @@ MonoBehaviour:
   Double: 0
   Troy: 0
   Bounce: 0
-  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
+  imunity: 1
 --- !u!1 &346739644
 GameObject:
   m_ObjectHideFlags: 0
@@ -2798,7 +2798,7 @@ MonoBehaviour:
   Double: 0
   Troy: 0
   Bounce: 0
-  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
+  imunity: 1
 --- !u!1 &419947253
 GameObject:
   m_ObjectHideFlags: 0
@@ -3044,7 +3044,7 @@ MonoBehaviour:
   Double: 0
   Troy: 0
   Bounce: 0
-  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
+  imunity: 1
 --- !u!1 &440288224
 GameObject:
   m_ObjectHideFlags: 0
@@ -3213,7 +3213,7 @@ MonoBehaviour:
   Double: 0
   Troy: 0
   Bounce: 0
-  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
+  imunity: 1
 --- !u!1 &442570809
 GameObject:
   m_ObjectHideFlags: 0
@@ -3382,7 +3382,7 @@ MonoBehaviour:
   Double: 0
   Troy: 0
   Bounce: 0
-  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
+  imunity: 1
 --- !u!1 &450131326
 GameObject:
   m_ObjectHideFlags: 0
@@ -3551,7 +3551,7 @@ MonoBehaviour:
   Double: 0
   Troy: 0
   Bounce: 0
-  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
+  imunity: 1
 --- !u!1 &513902585
 GameObject:
   m_ObjectHideFlags: 0
@@ -3619,9 +3619,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BubbleDamage: 5
   doubleBubble: 1
-  acidBubble: 0
-  troiaBubble: 0
-  bounceBubble: 0
+  acidBubble: 1
+  troiaBubble: 1
+  bounceBubble: 1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -3658,7 +3658,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.3490566, g: 0.14653791, b: 0.2330107, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -3913,7 +3913,7 @@ MonoBehaviour:
   Double: 0
   Troy: 0
   Bounce: 0
-  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
+  imunity: 1
 --- !u!1 &622209452
 GameObject:
   m_ObjectHideFlags: 0
@@ -4216,7 +4216,7 @@ MonoBehaviour:
   Double: 0
   Troy: 0
   Bounce: 0
-  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
+  imunity: 1
 --- !u!1 &709712617
 GameObject:
   m_ObjectHideFlags: 0
@@ -4693,7 +4693,7 @@ MonoBehaviour:
   Double: 0
   Troy: 0
   Bounce: 0
-  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
+  imunity: 1
 --- !u!1 &790776097
 GameObject:
   m_ObjectHideFlags: 0
@@ -4862,7 +4862,7 @@ MonoBehaviour:
   Double: 0
   Troy: 0
   Bounce: 0
-  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
+  imunity: 1
 --- !u!1 &795585055
 GameObject:
   m_ObjectHideFlags: 0
@@ -5031,7 +5031,7 @@ MonoBehaviour:
   Double: 0
   Troy: 0
   Bounce: 0
-  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
+  imunity: 1
 --- !u!1 &801991135
 GameObject:
   m_ObjectHideFlags: 0
@@ -5508,7 +5508,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c27156a205251cf4aa5e64db4632ef44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerCoins: 500
+  playerCoins: 1120
   itemsForSale:
   - {fileID: 931594752}
   - {fileID: 1177818450}
@@ -5838,7 +5838,7 @@ MonoBehaviour:
   Double: 0
   Troy: 0
   Bounce: 0
-  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
+  imunity: 1
 --- !u!1 &955716230
 GameObject:
   m_ObjectHideFlags: 0
@@ -6341,7 +6341,7 @@ MonoBehaviour:
   Double: 0
   Troy: 0
   Bounce: 0
-  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
+  imunity: 1
 --- !u!1 &1080560918
 GameObject:
   m_ObjectHideFlags: 0
@@ -6510,7 +6510,7 @@ MonoBehaviour:
   Double: 0
   Troy: 0
   Bounce: 0
-  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
+  imunity: 1
 --- !u!1 &1103188003
 GameObject:
   m_ObjectHideFlags: 0
@@ -6813,7 +6813,7 @@ MonoBehaviour:
   Double: 0
   Troy: 0
   Bounce: 0
-  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
+  imunity: 1
 --- !u!1 &1177818448
 GameObject:
   m_ObjectHideFlags: 0
@@ -7138,7 +7138,7 @@ MonoBehaviour:
   Double: 0
   Troy: 0
   Bounce: 0
-  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
+  imunity: 1
 --- !u!1 &1202046521
 GameObject:
   m_ObjectHideFlags: 0
@@ -7307,7 +7307,7 @@ MonoBehaviour:
   Double: 0
   Troy: 0
   Bounce: 0
-  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
+  imunity: 1
 --- !u!1 &1235334016
 GameObject:
   m_ObjectHideFlags: 0
@@ -7632,7 +7632,7 @@ MonoBehaviour:
   Double: 0
   Troy: 0
   Bounce: 0
-  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
+  imunity: 1
 --- !u!1 &1271192618
 GameObject:
   m_ObjectHideFlags: 0
@@ -7801,7 +7801,7 @@ MonoBehaviour:
   Double: 0
   Troy: 0
   Bounce: 0
-  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
+  imunity: 1
 --- !u!1 &1279478850
 GameObject:
   m_ObjectHideFlags: 0
@@ -8135,7 +8135,7 @@ MonoBehaviour:
   Double: 0
   Troy: 0
   Bounce: 0
-  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
+  imunity: 1
 --- !u!1 &1345241281
 GameObject:
   m_ObjectHideFlags: 0
@@ -8336,7 +8336,7 @@ MonoBehaviour:
   Double: 0
   Troy: 0
   Bounce: 0
-  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
+  imunity: 1
 --- !u!1 &1358398934
 GameObject:
   m_ObjectHideFlags: 0
@@ -8505,7 +8505,7 @@ MonoBehaviour:
   Double: 0
   Troy: 0
   Bounce: 0
-  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
+  imunity: 1
 --- !u!1 &1361258367
 GameObject:
   m_ObjectHideFlags: 0
@@ -9241,7 +9241,7 @@ MonoBehaviour:
   Double: 0
   Troy: 0
   Bounce: 0
-  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
+  imunity: 1
 --- !u!1 &1631688055
 GameObject:
   m_ObjectHideFlags: 0
@@ -9532,7 +9532,7 @@ MonoBehaviour:
   Double: 0
   Troy: 0
   Bounce: 0
-  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
+  imunity: 1
 --- !u!1 &1684600472
 GameObject:
   m_ObjectHideFlags: 0
@@ -9701,7 +9701,7 @@ MonoBehaviour:
   Double: 0
   Troy: 0
   Bounce: 0
-  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
+  imunity: 1
 --- !u!1 &1690486515
 GameObject:
   m_ObjectHideFlags: 0
@@ -9870,7 +9870,7 @@ MonoBehaviour:
   Double: 0
   Troy: 0
   Bounce: 0
-  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
+  imunity: 1
 --- !u!1 &1719779782
 GameObject:
   m_ObjectHideFlags: 0
@@ -10106,7 +10106,7 @@ MonoBehaviour:
   Double: 0
   Troy: 0
   Bounce: 0
-  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
+  imunity: 1
 --- !u!1 &1934733097
 GameObject:
   m_ObjectHideFlags: 0
@@ -10352,7 +10352,7 @@ MonoBehaviour:
   Double: 0
   Troy: 0
   Bounce: 0
-  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
+  imunity: 1
 --- !u!1 &1937612295
 GameObject:
   m_ObjectHideFlags: 0
@@ -10521,7 +10521,7 @@ MonoBehaviour:
   Double: 0
   Troy: 0
   Bounce: 0
-  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
+  imunity: 1
 --- !u!1 &1938318694
 GameObject:
   m_ObjectHideFlags: 0
@@ -10690,7 +10690,7 @@ MonoBehaviour:
   Double: 0
   Troy: 0
   Bounce: 0
-  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
+  imunity: 0
 --- !u!1 &1945972163
 GameObject:
   m_ObjectHideFlags: 0
@@ -10859,7 +10859,7 @@ MonoBehaviour:
   Double: 0
   Troy: 0
   Bounce: 0
-  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
+  imunity: 1
 --- !u!1 &1957643840
 GameObject:
   m_ObjectHideFlags: 0
@@ -11028,7 +11028,7 @@ MonoBehaviour:
   Double: 0
   Troy: 0
   Bounce: 0
-  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
+  imunity: 1
 --- !u!1 &1964083297
 GameObject:
   m_ObjectHideFlags: 0
@@ -11429,7 +11429,7 @@ MonoBehaviour:
   Double: 0
   Troy: 0
   Bounce: 0
-  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
+  imunity: 1
 --- !u!1 &2029699134
 GameObject:
   m_ObjectHideFlags: 0
@@ -11755,7 +11755,7 @@ MonoBehaviour:
   Double: 0
   Troy: 0
   Bounce: 0
-  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
+  imunity: 1
 --- !u!1 &2082482202
 GameObject:
   m_ObjectHideFlags: 0
@@ -12057,7 +12057,7 @@ MonoBehaviour:
   Double: 0
   Troy: 0
   Bounce: 0
-  bubbleClone: {fileID: 7759371172505005565, guid: 87bb4b1c5f557414b82df75818e76bd5, type: 3}
+  imunity: 1
 --- !u!50 &558261798170396252
 Rigidbody2D:
   serializedVersion: 4
@@ -12127,7 +12127,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f8428c5f5196b76438cde8d2c1ff5595, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.4, g: 0.9372549, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -12171,7 +12171,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.8282578
 --- !u!114 &5742293392409882786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12191,7 +12191,7 @@ MonoBehaviour:
   Double: 0
   Troy: 0
   Bounce: 0
-  bubbleClone: {fileID: 5943583126331318112}
+  imunity: 1
 --- !u!1 &5943583126331318112
 GameObject:
   m_ObjectHideFlags: 0
