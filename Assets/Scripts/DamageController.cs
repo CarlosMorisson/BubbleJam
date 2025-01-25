@@ -5,23 +5,11 @@ using UnityEngine;
 
 public class DamageController : MonoBehaviour
 {
-    public static Action<int> OnTakeDamage;
+    public static Action OnTakeDamage;
 
-    void OnEnable()
+    public static void OnBubbleTakeDamage()
     {
-        OnTakeDamage += SpaceTakeDamage;
-
-    }
-    private void OnDisable()
-    {
-
-    }
-
-    void SpaceTakeDamage(int num)
-    {
-        DamageView.Instance.UpdateText();
-
-       
+        OnTakeDamage?.Invoke();
     }
 
 }

@@ -28,6 +28,7 @@ public class StoreController : MonoBehaviour
             BubbleController.Instance.CheckUpgrades(buy.skillName, buy.isPurchased);
         }
     }
+
     private void HandleGameStateChange(GameController.GameState newState)
     {
         
@@ -50,7 +51,7 @@ public class StoreController : MonoBehaviour
             BuySkill item = itemsForSale[itemIndex];
 
             // Verificar se o jogador tem dinheiro suficiente
-            if (playerCoins >= item.skillPrice && item.purchaseTime<item.maxPurchase)
+            if (playerCoins >= item.skillPrice && item.purchaseTime < item.maxPurchase)
             {
                 // Subtrair o valor do jogador
                 playerCoins -= item.skillPrice;
