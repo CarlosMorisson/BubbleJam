@@ -45,9 +45,13 @@ public class BubbleController : MonoBehaviour
     {
         if (bubblesParent == null)
         {
-            Debug.LogError("Bubbles Parent n„o foi encontrado!");
+            Debug.LogError("Bubbles Parent n√£o foi encontrado!");
             return 0; // Retorna 0 em caso de erro
         }
+        if (CountActiveBubbles() <= 0 && BossController.Instance.bossLife >0)
+            GameController.Instance.GetGameState(GameController.GameState.End);
+        else if(CountActiveBubbles() <= 0 && BossController.Instance.bossLife <= 0)
+            GameController.Instance.GetGameState(GameController.GameState.Victory);
         return CountActiveBubbles();
     }
     void Start()
@@ -63,16 +67,18 @@ public class BubbleController : MonoBehaviour
             {
                 bubbles[i] = bubblesParent.GetChild(i).gameObject;
                 bubbles[i].GetComponent<BubbleCollider>().bubbleDamage = BubbleDamage;
+
                 bubbles[i].GetComponent<BubbleCollider>().Acid = acidBubble;
                 bubbles[i].GetComponent<BubbleCollider>().Double = doubleBubble;
                 bubbles[i].GetComponent<BubbleCollider>().Troy = troiaBubble;
                 bubbles[i].GetComponent<BubbleCollider>().Bounce = bounceBubble;
+
             }
         }
     }
     public void CheckUpgrades(string skillName, bool isPurchased)
     {
-        //Sim È porquice mas È sÛ pra Jam, se quiser expandir tem q tirar essa caganeira
+        //Sim √© porquice mas √© s√≥ pra Jam, se quiser expandir tem q tirar essa caganeira
         if (skillName == "Bolha Dupla")
             doubleBubble = isPurchased;
         if (skillName == "Bolha de Troia")

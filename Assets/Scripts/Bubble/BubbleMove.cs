@@ -17,7 +17,6 @@ public class BubbleMovement : MonoBehaviour
     [SerializeField] [Range(0, 10)] private float maxForce = 0.5f; // Força máxima
     [SerializeField] [Range(0, 5)] private float speedTolerance;
 
-    private Camera mainCamera;
     private void Awake()
     {
         Instance = this;
@@ -26,7 +25,6 @@ public class BubbleMovement : MonoBehaviour
     public void NewBubble()
     {
         bubblesParent = GameObject.FindGameObjectWithTag("BubbleParent").transform;
-        mainCamera = Camera.main;
 
         if (bubblesParent != null)
         {
@@ -48,14 +46,15 @@ public class BubbleMovement : MonoBehaviour
     {
         if (newState == GameController.GameState.Game)
         {
+            
             NewBubble();
             PositionBubbles();
         }
-        else
+        else 
         {
             StopAllCoroutines();
             // Reseta o timer de spawn
-            Debug.Log("LevelController desativado.");
+
         }
     }
     private void Start()
@@ -93,7 +92,7 @@ public class BubbleMovement : MonoBehaviour
         // Obter a posição do mouse no mundo
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = 0; // Garantir que as bolhas permaneçam no plano 2D
-        if (GameController.GameState.Store == GameController.Instance.State)
+        if (GameController.GameState.Game != GameController.Instance.State)
             return;
         foreach (GameObject bubble in bubbles)
         {
