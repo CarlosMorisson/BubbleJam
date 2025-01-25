@@ -120,17 +120,18 @@ public class BubbleCollider : MonoBehaviour
                 Acid = false;
                 ImunityBubble();
                 ChangeCollor(GameController.GameState.Game);
-                this.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+              
             }
             else if(Bounce)
             {
                 Bounce=false;
+                imunity = false;
                 ChangeCollor(GameController.GameState.Game);
                 ImunityBubble();
-                direction= this.transform.position - collision.transform.position;
-                rb.AddForce(direction*8, ForceMode2D.Impulse);
+                direction= (this.transform.position*2) -( collision.transform.position*2);
+                rb.AddForce(direction.normalized*10, ForceMode2D.Impulse);
                 StartCoroutine(BaouceFluid());
-                this.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+              
 
 
             }
@@ -188,11 +189,15 @@ public class BubbleCollider : MonoBehaviour
     }
     IEnumerator TroyImpruvment()
     {
-        this.gameObject.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0);
-        yield return new WaitForSeconds(1);
-        this.gameObject.GetComponent<SpriteRenderer>().color =Color.white;
-        this.gameObject.transform.localScale = new Vector3(0.26f, 0.26f, 0.26f);
-     
+        Color cor;
+        cor=this.gameObject.GetComponent<SpriteRenderer>().color;
+        this.gameObject.GetComponent<SpriteRenderer>().color=new Color(cor.r,cor.g,cor.b,0);
+
+        yield return new WaitForEndOfFrame();
+
+        this.gameObject.GetComponent<SpriteRenderer>().color=cor;
+
+
 
 
 
@@ -201,13 +206,14 @@ public class BubbleCollider : MonoBehaviour
 
     public void ImunityBubble()
     {
+        StopCoroutine(Imunity());
         StartCoroutine(Imunity());
     }
     IEnumerator Imunity()
     {
         imunity = false;
        
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(3);
         imunity = true;
 
     }
@@ -226,7 +232,7 @@ public class BubbleCollider : MonoBehaviour
     IEnumerator BaouceFluid()
     {
       
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(0.5f);
             rb.velocity = Vector2.zero;
 
 
