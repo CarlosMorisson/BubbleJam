@@ -9,7 +9,7 @@ public class ObstacleMovemment : MonoBehaviour
     private void Start()
     {
         mainCamera = Camera.main;
-        CheckChildrenBoundsX();
+       // CheckChildrenBoundsX();
     }
     void Update()
     {
