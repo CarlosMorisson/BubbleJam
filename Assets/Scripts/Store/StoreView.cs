@@ -10,6 +10,8 @@ public class StoreView : MonoBehaviour
     [Header("Coins")]
     [SerializeField]
     private TextMeshProUGUI coinsText;
+    [SerializeField]
+    public GameObject StoreCanva;
 
     private bool showDescription;
 
