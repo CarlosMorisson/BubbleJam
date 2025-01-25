@@ -143,7 +143,8 @@ public class BubbleMovement : MonoBehaviour
                 // Vetor apontando para longe do vizinho
                 Vector3 diff = bubble.transform.position - other.transform.position;
                 diff.Normalize();
-                diff /= distance; // Ponderar pela distância
+                if(distance>0)
+                    diff /= distance; // Ponderar pela distância
                 steer += diff;
                 count++;
             }
