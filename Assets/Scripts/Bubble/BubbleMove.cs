@@ -99,6 +99,7 @@ public class BubbleMovement : MonoBehaviour
         mousePosition.z = 0; // Garantir que as bolhas permaneçam no plano 2D
         if (GameController.GameState.Game != GameController.Instance.State)
             return;
+
         foreach (GameObject bubble in bubbles)
         {
             if (!bubble.activeSelf) continue;

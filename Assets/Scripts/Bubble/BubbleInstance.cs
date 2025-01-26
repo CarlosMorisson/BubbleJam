@@ -42,7 +42,7 @@ public class BubbleInstance : MonoBehaviour
         newBubble1.transform.position = position.position;
         newBubble1.transform.Translate(new Vector3(newX, newY, 0));
         newBubble1.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), Random.Range(-1, 1))*6, ForceMode2D.Impulse);
-        BubbleMovement.Instance.NewBubble();
+      
 
 
          GameObject newBubble2 = Instantiate(bubbles, bubblesSpace);
@@ -56,6 +56,7 @@ public class BubbleInstance : MonoBehaviour
         BubbleMovement.Instance.NewBubble();
         bubblesList.Add(newBubble2);
 
+    
 
 
 
@@ -75,9 +76,10 @@ public class BubbleInstance : MonoBehaviour
             {
                 Destroy(bubble);
             }
+            bubblesList.Clear();
         }
-        BubbleMovement.Instance.NewBubble();
-        BubbleMovement.Instance.PositionBubbles();
+        //BubbleMovement.Instance.NewBubble();
+        //BubbleMovement.Instance.PositionBubbles();
 
     }
 

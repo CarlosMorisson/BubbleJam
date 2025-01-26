@@ -79,6 +79,7 @@ public class BubbleController : MonoBehaviour
     }
     void Start()
     {
+        bubblesParent = GameObject.FindGameObjectWithTag("BubbleParent").transform;
         BubblesProps(GameController.GameState.Game);
     }
     public void BubblesProps(GameController.GameState state)
@@ -86,7 +87,7 @@ public class BubbleController : MonoBehaviour
         
         if (state== GameController.GameState.Game)
         {
-            bubblesParent = GameObject.FindGameObjectWithTag("BubbleParent").transform;
+           
             if (bubblesParent != null)
             {
                 int bubbleCount = bubblesParent.childCount;
@@ -94,10 +95,6 @@ public class BubbleController : MonoBehaviour
                 activeBubbleCount = CountActiveBubbles();
                 for (int i = 0; i < bubbleCount; i++)
                 {
-                    //if (bubbles[i].name.Contains("Clone"))
-                    //{
-                    //    Destroy(bubbles[i]);    
-                    //}
                         bubbles[i] = bubblesParent.GetChild(i).gameObject;
                     bubbles[i].GetComponent<BubbleCollider>().bubbleDamage = BubbleDamage;
 
