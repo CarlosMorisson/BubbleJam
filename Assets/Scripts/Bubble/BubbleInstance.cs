@@ -69,7 +69,7 @@ public class BubbleInstance : MonoBehaviour
 
     void DeleteClones(GameController.GameState state)
     {
-        if(state== GameController.GameState.Store)
+        if (state == GameController.GameState.Store|| state == GameController.GameState.End|| state == GameController.GameState.Victory)
         {
             foreach (GameObject bubble in bubblesList)
             {
@@ -84,8 +84,18 @@ public class BubbleInstance : MonoBehaviour
     IEnumerator WaitTime(GameObject obj1, GameObject obj2)
     {
         yield return new WaitForSeconds(2);
-        obj1.gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-        obj2.gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+        if(obj1!=null)
+        {
+            obj1.gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+
+        }
+
+        if (obj2!=null)
+        {
+            obj2.gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+        }
+
+     
 
 
 
