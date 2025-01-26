@@ -83,18 +83,10 @@ public class BubbleMovement : MonoBehaviour
 
             Vector3 newPosition;
 
-            if (i == 0)
-            {
-                // A primeira bolha sempre começa em (0, 0)
-                newPosition = Vector3.zero;
-            }
-            else
-            {
-                // Próximas bolhas têm um valor aleatório no eixo X e uma distância fixa no eixo Y
-                float randomX = Random.Range(randomRangeX.x, randomRangeX.y);
-                float fixedY =  yDistance;
-                newPosition = new Vector3(randomX, fixedY, 0f);
-            }
+            // Próximas bolhas têm um valor aleatório no eixo X e uma distância fixa no eixo Y
+            float randomX = Random.Range(randomRangeX.x, randomRangeX.y);
+            float fixedY =  yDistance;
+            newPosition = new Vector3(randomX, fixedY, 0f);
 
             // Aplicar a nova posição à bolha
             bubbles[i].transform.position = newPosition;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using DG.Tweening;
 
 public class GameView : MonoBehaviour
 {
@@ -39,6 +40,9 @@ public class GameView : MonoBehaviour
     public void SetHealth(float health, float maxHealth)
     {
         health = Mathf.Clamp(health, 0, maxHealth);
-        healthBarImage.fillAmount = health / maxHealth;
+        float targetFillAmount = health / maxHealth;
+
+        // Animar o fillAmount usando DOTween
+        healthBarImage.DOFillAmount(targetFillAmount, 0.5f).SetEase(Ease.InOutQuad);
     }
 }
