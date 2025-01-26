@@ -79,14 +79,25 @@ public class StoreView : MonoBehaviour
         // Animação de descida
         sequence.Insert(delayBetween, _storeItensContainer.DOAnchorPosY(-Screen.height, duration).SetEase(Ease.InOutQuad));
         sequence.Insert(delayBetween, _descriptionsContainer.DOAnchorPosY(-Screen.height, duration).SetEase(Ease.InOutQuad));
-        sequence.Insert(delayBetween, _bequer.DOShakeAnchorPos(delayBetween*4, strength: new Vector2(10f, 0), vibrato: 20, randomness: 90));
+        sequence.Insert(delayBetween, _bequer.DOShakeAnchorPos(delayBetween * 4, strength: new Vector2(10f, 0), vibrato: 20, randomness: 90));
 
-        sequence.InsertCallback(delayBetween * 2.5f, () => _bequer.GetComponent<ParticleSystem>().Play());
+        sequence.InsertCallback(delayBetween * 2.5f, () =>
+        { 
+            _bequer.GetComponent<ParticleSystem>().Play();
+            AudioController.Instance.PlayAudio("SFX", "BolhasSubindo");
+        });
         sequence.InsertCallback(delayBetween * 3, () => GameController.Instance.StartGame());
         sequence.Insert(delayBetween * 3, _bequer.DOAnchorPosY(-Screen.height, duration).SetEase(Ease.InOutQuad));
         sequence.Insert(delayBetween * 4, _table.DOAnchorPosY(-Screen.height, duration).SetEase(Ease.InOutQuad));
-        sequence.InsertCallback(0, () => _startButton.anchoredPosition = new Vector2(0, -Screen.height)).OnStart(() => _startButton.GetComponent<ParticleSystem>().Play()).OnComplete(() => _startButton.GetComponent<ParticleSystem>().Stop());
-        sequence.Insert(delayBetween, Camera.main.DOShakeRotation(delayBetween * 3, strength: new Vector2(1f, 1f), vibrato: 20, randomness: 90));
+        sequence.InsertCallback(0, () => _startButton.GetComponent<ParticleSystem>().Play());
+        sequence.InsertCallback(0.01f, () => _startButton.anchoredPosition = new Vector2(0, -Screen.height))
+            .OnStart(() =>
+            {
+                AudioController.Instance.PlayAudio("SFX", "Swip");
+            })
+            .OnComplete(() => _startButton.GetComponent<ParticleSystem>().Stop());
+        sequence.Insert(delayBetween, Camera.main.DOShakeRotation(delayBetween * 3, strength: new Vector2(1f, 1f), vibrato: 20, randomness: 90))
+            .OnStart(() => AudioController.Instance.PlayAudio("SFX","Tremendo"));
 
     }
 

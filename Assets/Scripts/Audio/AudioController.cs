@@ -44,7 +44,15 @@ public class AudioController : MonoBehaviour
     {
         DamageController.OnTakeDamage -= BubbleExplode;
     }
+    public void BigBubble()
+    {
+        PlayAudio("Bubble", "BigExplode", fadeDuration: 0, true);
+    }
 
+    public void OpenPopup()
+    {
+        PlayAudio("SFX", "OpenPopup",fadeDuration: 0,true);
+    }
     public void BubbleExplode()
     {
         // Verifica se o grupo "Bubble" existe no dicionário

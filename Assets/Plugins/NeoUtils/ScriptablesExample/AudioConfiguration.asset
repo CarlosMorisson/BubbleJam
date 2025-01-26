@@ -76,10 +76,20 @@ MonoBehaviour:
               Pan: 0
               MinDistance: 0
               MaxDistance: 0
+          - Key: BigExplode
+            Value:
+              Clip: {fileID: 8300000, guid: 3c3c0e864cb0fd34ea935002f189591f, type: 3}
+              Loop: 0
+              Priority: 0
+              Volume: 1
+              Pitch: 1
+              Pan: 0
+              MinDistance: 0
+              MaxDistance: 0
     - Key: SFX
       Value:
         AudioMixerGroup: {fileID: -3926276308457511099, guid: 0cefb3748ba55a54aa76b46c9bde0e41, type: 2}
-        PoolLenght: 2
+        PoolLenght: 5
         Sounds:
           _valueKeyPairList:
           - Key: Button
@@ -87,8 +97,48 @@ MonoBehaviour:
               Clip: {fileID: 8300000, guid: f9b43cd91a7068042ae39fad59712da8, type: 3}
               Loop: 0
               Priority: 0
-              Volume: 0.3
+              Volume: 0.2
               Pitch: 2
+              Pan: 0
+              MinDistance: 0
+              MaxDistance: 0
+          - Key: Swip
+            Value:
+              Clip: {fileID: 8300000, guid: 46f58564497ace842bad8b7a71ece730, type: 3}
+              Loop: 0
+              Priority: 0
+              Volume: 0.5
+              Pitch: 1
+              Pan: 0
+              MinDistance: 0
+              MaxDistance: 0
+          - Key: Tremendo
+            Value:
+              Clip: {fileID: 8300000, guid: e476aa78eb5833f4fb49621168edb35a, type: 3}
+              Loop: 0
+              Priority: 0
+              Volume: 0.5
+              Pitch: 1
+              Pan: 0
+              MinDistance: 0
+              MaxDistance: 0
+          - Key: BolhasSubindo
+            Value:
+              Clip: {fileID: 8300000, guid: d5ae90ed646331246a0fce9a4d122c2f, type: 3}
+              Loop: 0
+              Priority: 0
+              Volume: 0.7
+              Pitch: 1
+              Pan: 0
+              MinDistance: 0
+              MaxDistance: 0
+          - Key: OpenPopup
+            Value:
+              Clip: {fileID: 8300000, guid: 41e75883c4b162344abde39d1f184ba4, type: 3}
+              Loop: 0
+              Priority: 0
+              Volume: 0.7
+              Pitch: 1
               Pan: 0
               MinDistance: 0
               MaxDistance: 0
