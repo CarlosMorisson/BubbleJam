@@ -13,7 +13,8 @@ public class StoreView : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI coinsText;
     [SerializeField] public GameObject StoreCanva;
-    [SerializeField] private RectTransform _storeItensContainer, _descriptionsContainer, _bequer, _startButton,_table;
+    [SerializeField] private RectTransform _storeItensContainer, _descriptionsContainer, _bequer, _startButton, _table;
+    [SerializeField] private Image _bg;
 
     private Vector3 _storeItensInitialPosition, _descriptionsInitialPosition, _bequerInitialPosition, _startInitialPosition,_tableInitialPos;
     void Start()
@@ -80,7 +81,7 @@ public class StoreView : MonoBehaviour
         sequence.Insert(delayBetween, _storeItensContainer.DOAnchorPosY(-Screen.height, duration).SetEase(Ease.InOutQuad));
         sequence.Insert(delayBetween, _descriptionsContainer.DOAnchorPosY(-Screen.height, duration).SetEase(Ease.InOutQuad));
         sequence.Insert(delayBetween, _bequer.DOShakeAnchorPos(delayBetween * 4, strength: new Vector2(10f, 0), vibrato: 20, randomness: 90));
-
+        sequence.Insert(delayBetween, _bg.DOFade(0, duration));
         sequence.InsertCallback(delayBetween * 2.5f, () =>
         { 
             _bequer.GetComponent<ParticleSystem>().Play();
@@ -109,6 +110,8 @@ public class StoreView : MonoBehaviour
 
         Sequence sequence = DOTween.Sequence();
         // Animação de volta às posições iniciais
+        sequence.Insert(delayBetween, _bg.DOFade(1, duration));
+
         sequence.Insert(duration + delayBetween, _storeItensContainer.DOAnchorPosY(_storeItensInitialPosition.y, duration).SetEase(Ease.InOutQuad));
         sequence.Insert(duration + delayBetween, _descriptionsContainer.DOAnchorPosY(_descriptionsInitialPosition.y, duration).SetEase(Ease.InOutQuad));
         sequence.Insert(duration + delayBetween * 2, _bequer.DOAnchorPosY(_bequerInitialPosition.y, duration).SetEase(Ease.InOutQuad));
