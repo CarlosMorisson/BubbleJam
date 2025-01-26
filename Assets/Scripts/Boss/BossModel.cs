@@ -28,6 +28,7 @@ public class BossModel : MonoBehaviour
     private Material previousMaterial;
     private SpriteRenderer actualSprite;
     public static Action<int> OnTakeDamage;
+    public Vector3 _initialPos;
     void Start()
     {
         Instance = this;
@@ -35,13 +36,20 @@ public class BossModel : MonoBehaviour
         GameController.OnGameStateChanged += LoadBossLife;
         actualSprite = GetComponentInChildren<SpriteRenderer>();
         previousMaterial = actualSprite.material;
+        _initialPos = transform.position;
     }
     private void OnEnable()
     {
-        gameObject.transform.DOLocalMoveY(yAxisToGo, timeToGo);
+        
+        gameObject.transform.DOLocalMoveY(yAxisToGo, timeToGo).OnStart(() => transform.position = _initialPos);
         bossLife = PlayerPrefs.GetInt("BossLife", (int)maxBossLife);
+        actualSprite.material = previousMaterial;
     }
 
+    private void OnDisable()
+    {
+        transform.position = _initialPos;
+    }
     public void LoadBossLife(GameController.GameState newState)
     {
         if(newState == GameController.GameState.Store)
