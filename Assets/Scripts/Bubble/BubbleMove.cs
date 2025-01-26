@@ -75,7 +75,7 @@ public class BubbleMovement : MonoBehaviour
         // Encontrar o pai das bolhas e inicializar o array
         GameController.OnGameStateChanged += HandleGameStateChange;
     }
-    private void PositionBubbles()
+    public void PositionBubbles()
     {
         for (int i = 0; i < bubbles.Length; i++)
         {
