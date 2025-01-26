@@ -20,8 +20,10 @@ public class GameController : MonoBehaviour
 
     void Awake()
     {
+        Application.targetFrameRate = 60; // Limita o FPS para 60
         Instance = this;
         State = GameState.Store;
+       
     }
     public void StartGame()
     {

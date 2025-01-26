@@ -34,7 +34,7 @@ public class BubbleCollider : MonoBehaviour
     private void OnEnable()
     {
 
-        ChangeCollor(GameController.GameState.Game);
+       // ChangeCollor(GameController.GameState.Store);
 
         GameController.OnGameStateChanged += ChangeCollor;
 
@@ -89,7 +89,7 @@ public class BubbleCollider : MonoBehaviour
 
     private void Start()
     {
-       
+
         rb = GetComponent<Rigidbody2D>();
         //Fazer com que novas bolhas nao sejam imediatamente destruidas quando ocorrer colisao
         StartCoroutine(EnableCollision());
@@ -113,7 +113,8 @@ public class BubbleCollider : MonoBehaviour
             knockbackDirection.Normalize();
 
             rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
-        }else if (collision.CompareTag("Teleport"))
+        }
+        else if (collision.CompareTag("Teleport"))
         {
             collision.GetComponentInParent<WholeEffect>().TeleportPlayer(this.gameObject);
         }
