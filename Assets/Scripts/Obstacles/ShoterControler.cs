@@ -62,7 +62,7 @@ public class ShoterControler : MonoBehaviour
 
     void OnBecameInvisible()
     {
-        Debug.Log("O objeto está invisível!");
+      //  Debug.Log("O objeto está invisível!");
 
         isActive = false;
         StopCoroutine(ShotBullets());
