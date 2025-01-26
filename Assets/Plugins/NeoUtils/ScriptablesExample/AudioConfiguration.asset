@@ -22,33 +22,73 @@ MonoBehaviour:
           _valueKeyPairList:
           - Key: MusicaTema
             Value:
-              Clip: {fileID: 8300000, guid: 9a61953ac787e73448b1ec4d9477f0f8, type: 3}
-              Loop: 0
+              Clip: {fileID: 8300000, guid: 32a647e4b056dfd45ad13752028984b2, type: 3}
+              Loop: 1
               Priority: 128
-              Volume: 1
+              Volume: 0.3
               Pitch: 1
               Pan: 0
               MinDistance: 1
               MaxDistance: 50
-          - Key: Boss
+    - Key: Bubble
+      Value:
+        AudioMixerGroup: {fileID: -3926276308457511099, guid: 0cefb3748ba55a54aa76b46c9bde0e41, type: 2}
+        PoolLenght: 2
+        Sounds:
+          _valueKeyPairList:
+          - Key: Explode1
             Value:
-              Clip: {fileID: 8300000, guid: 9a61953ac787e73448b1ec4d9477f0f8, type: 3}
+              Clip: {fileID: 8300000, guid: 9d2d36a8f9d3e5b49a0d2097a3206467, type: 3}
               Loop: 0
-              Priority: 121
+              Priority: 0
               Volume: 1
-              Pitch: 0.814
+              Pitch: 1
               Pan: 0
-              MinDistance: 1
-              MaxDistance: 50
+              MinDistance: 0
+              MaxDistance: 0
+          - Key: Explode2
+            Value:
+              Clip: {fileID: 8300000, guid: b1ee6c03987569e41955f016af2f4021, type: 3}
+              Loop: 0
+              Priority: 0
+              Volume: 1
+              Pitch: 1
+              Pan: 0
+              MinDistance: 0
+              MaxDistance: 0
+          - Key: Explode3
+            Value:
+              Clip: {fileID: 8300000, guid: 33b8cafc8280ce84c9b3615cb34f458f, type: 3}
+              Loop: 0
+              Priority: 0
+              Volume: 1
+              Pitch: 1
+              Pan: 0
+              MinDistance: 0
+              MaxDistance: 0
+          - Key: Explode4
+            Value:
+              Clip: {fileID: 8300000, guid: 3c3c0e864cb0fd34ea935002f189591f, type: 3}
+              Loop: 0
+              Priority: 0
+              Volume: 1
+              Pitch: 1
+              Pan: 0
+              MinDistance: 0
+              MaxDistance: 0
     - Key: SFX
       Value:
         AudioMixerGroup: {fileID: -3926276308457511099, guid: 0cefb3748ba55a54aa76b46c9bde0e41, type: 2}
-        PoolLenght: 1
+        PoolLenght: 2
         Sounds:
-          _valueKeyPairList: []
-    - Key: Ambient
-      Value:
-        AudioMixerGroup: {fileID: -7429954558812127354, guid: 0cefb3748ba55a54aa76b46c9bde0e41, type: 2}
-        PoolLenght: 1
-        Sounds:
-          _valueKeyPairList: []
+          _valueKeyPairList:
+          - Key: Button
+            Value:
+              Clip: {fileID: 8300000, guid: f9b43cd91a7068042ae39fad59712da8, type: 3}
+              Loop: 0
+              Priority: 0
+              Volume: 0.3
+              Pitch: 2
+              Pan: 0
+              MinDistance: 0
+              MaxDistance: 0
