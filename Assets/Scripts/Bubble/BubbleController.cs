@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using UnityEngine;
 
 public class BubbleController : MonoBehaviour
@@ -18,6 +19,15 @@ public class BubbleController : MonoBehaviour
     private bool doubleBubble, acidBubble, troiaBubble, bounceBubble;
 
     private int activeBubbleCount;
+
+    private void OnEnable()
+    {
+        GameController.OnGameStateChanged += BubblesProps;
+    }
+    private void OnDisable()
+    {
+        GameController.OnGameStateChanged -= BubblesProps;
+    }
     public void CheckBubbleCount()
     {
         int bubbleCount = bubblesParent.childCount;
@@ -63,27 +73,44 @@ public class BubbleController : MonoBehaviour
             
         return CountActiveBubbles();
     }
-    void Start()
+    private void Awake()
     {
         Instance = this;
-        bubblesParent = GameObject.FindGameObjectWithTag("BubbleParent").transform;
-        if (bubblesParent != null)
+    }
+    void Start()
+    {
+        BubblesProps(GameController.GameState.Game);
+    }
+    public void BubblesProps(GameController.GameState state)
+    {
+        
+        if (state== GameController.GameState.Game)
         {
-            int bubbleCount = bubblesParent.childCount;
-            bubbles = new GameObject[bubbleCount];
-            activeBubbleCount = CountActiveBubbles();
-            for (int i = 0; i < bubbleCount; i++)
+            bubblesParent = GameObject.FindGameObjectWithTag("BubbleParent").transform;
+            if (bubblesParent != null)
             {
-                bubbles[i] = bubblesParent.GetChild(i).gameObject;
-                bubbles[i].GetComponent<BubbleCollider>().bubbleDamage = BubbleDamage;
+                int bubbleCount = bubblesParent.childCount;
+                bubbles = new GameObject[bubbleCount];
+                activeBubbleCount = CountActiveBubbles();
+                for (int i = 0; i < bubbleCount; i++)
+                {
+                    //if (bubbles[i].name.Contains("Clone"))
+                    //{
+                    //    Destroy(bubbles[i]);    
+                    //}
+                        bubbles[i] = bubblesParent.GetChild(i).gameObject;
+                    bubbles[i].GetComponent<BubbleCollider>().bubbleDamage = BubbleDamage;
 
-                bubbles[i].GetComponent<BubbleCollider>().Acid = acidBubble;
-                bubbles[i].GetComponent<BubbleCollider>().Double = doubleBubble;
-                bubbles[i].GetComponent<BubbleCollider>().Troy = troiaBubble;
-                bubbles[i].GetComponent<BubbleCollider>().Bounce = bounceBubble;
+                    bubbles[i].GetComponent<BubbleCollider>().Acid = acidBubble;
+                    bubbles[i].GetComponent<BubbleCollider>().Double = doubleBubble;
+                    bubbles[i].GetComponent<BubbleCollider>().Troy = troiaBubble;
+                    bubbles[i].GetComponent<BubbleCollider>().Bounce = bounceBubble;
 
+                }
             }
+
         }
+       
     }
     public void CheckUpgrades(string skillName, bool isPurchased)
     {

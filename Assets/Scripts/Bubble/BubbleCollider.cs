@@ -21,11 +21,16 @@ public class BubbleCollider : MonoBehaviour
     public bool Acid, Double, Troy, Bounce;
 
     public bool imunity;
-    private Vector3 direction;   
+    private Vector3 direction;
 
-   
+  
 
     private Rigidbody2D rb;
+
+    private void Awake()
+    {
+        imunity=true;
+    }
     private void OnEnable()
     {
 
@@ -36,6 +41,11 @@ public class BubbleCollider : MonoBehaviour
 
 
     }
+    private void OnDisable()
+    {
+        GameController.OnGameStateChanged -= ChangeCollor;
+    }
+
     public void ChangeCollor(GameController.GameState state)
     {
    
@@ -43,6 +53,8 @@ public class BubbleCollider : MonoBehaviour
         {
             return;
         }
+
+        imunity = true;
 
       
         if (Troy)
@@ -58,7 +70,7 @@ public class BubbleCollider : MonoBehaviour
         else if (Bounce)
         {
 
-            this.gameObject.GetComponent<SpriteRenderer>().color = new Color(0.49f, 0.49f, 1, 1);
+            this.gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 0.55f, 0.53f, 1);
 
         }
         else if (Double)
@@ -73,6 +85,7 @@ public class BubbleCollider : MonoBehaviour
             this.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
         }
     }
+ 
 
     private void Start()
     {
@@ -206,14 +219,18 @@ public class BubbleCollider : MonoBehaviour
 
     public void ImunityBubble()
     {
-        StopCoroutine(Imunity());
-        StartCoroutine(Imunity());
+        if (imunity)
+        {
+          
+            StartCoroutine(Imunity());
+        }
+       
     }
     IEnumerator Imunity()
     {
         imunity = false;
        
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
         imunity = true;
 
     }
