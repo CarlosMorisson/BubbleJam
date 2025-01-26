@@ -229,7 +229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   space: {fileID: 770228998787663078}
   bullet: {fileID: 154069458188856893, guid: 23afcbf2a6926274894f9389fccb83d1, type: 3}
-  frequency: 0.37
+  frequency: 2
   shakeMoviment: 0
   minAngle: -45
   maxAngle: 45

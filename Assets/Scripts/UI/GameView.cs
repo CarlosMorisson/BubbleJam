@@ -11,6 +11,9 @@ public class GameView : MonoBehaviour
     private GameObject finalGamePanel;
 
     [SerializeField]
+    private GameObject victoryGamePanel;
+
+    [SerializeField]
     private Image healthBarImage;
     void Start()
     {
@@ -30,7 +33,7 @@ public class GameView : MonoBehaviour
         }
         else if(GameController.GameState.Victory == newState)
         {
-            //MostrarVitoria
+            victoryGamePanel.SetActive(true);
         }
     }
     public void SetHealth(float health, float maxHealth)

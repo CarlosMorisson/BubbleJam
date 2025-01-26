@@ -52,8 +52,21 @@ public class BubbleMovement : MonoBehaviour
         }
         else 
         {
+            ActiveAllBubbles();
+            PositionBubbles();
             StopAllCoroutines();
             // Reseta o timer de spawn
+
+        }
+    }
+    private void ActiveAllBubbles()
+    {
+        if (bubblesParent != null)
+        {
+            for (int i = 0; i < bubblesParent.childCount; i++)
+            {
+                bubbles[i].SetActive(true);
+            }
 
         }
     }

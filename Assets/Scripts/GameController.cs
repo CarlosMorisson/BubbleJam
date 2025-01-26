@@ -37,5 +37,16 @@ public class GameController : MonoBehaviour
         State = state;
         OnGameStateChanged?.Invoke(State);
     }
+    public void RestartGameVictory(bool isGay)
+    {
+        if (isGay)
+        {
+            PlayerPrefs.DeleteKey("BossLife");
+        }
+        else
+        {
+            PlayerPrefs.DeleteAll();
+        }
+    }
 
 }

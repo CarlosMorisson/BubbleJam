@@ -39,6 +39,7 @@ public class BossModel : MonoBehaviour
     private void OnEnable()
     {
         gameObject.transform.DOLocalMoveY(yAxisToGo, timeToGo);
+        bossLife = PlayerPrefs.GetInt("BossLife");
     }
 
     public void LoadBossLife(GameController.GameState newState)
@@ -46,7 +47,11 @@ public class BossModel : MonoBehaviour
         if(newState == GameController.GameState.Store)
             bossLife = PlayerPrefs.GetInt("BossLife");
         else
+        {
             PlayerPrefs.SetInt("BossLife", (int)bossLife);
+            gameObject.SetActive(false);
+        }
+            
         //actualSprite.sprite = CheckSprite();
     }
     public void ReceiveDamage(int damage)

@@ -38,38 +38,38 @@ public class BubbleCollider : MonoBehaviour
     }
     public void ChangeCollor(GameController.GameState state)
     {
-        Debug.Log("change cololor");
+   
         if(state!=GameController.GameState.Game)
         {
             return;
         }
 
-        Debug.Log("change cololor passou");
+      
         if (Troy)
         {
-            Debug.Log("change cololor Troy");
+
             this.gameObject.GetComponent<SpriteRenderer>().color = new Color(0.4f, 0.93f, 1, 1);
         }
         else if (Acid)
         {
-            Debug.Log("change cololor Acoid");
+  
             this.gameObject.GetComponent<SpriteRenderer>().color = new Color(0.49f, 0.85f, 0.49f, 1);
         }
         else if (Bounce)
         {
-            Debug.Log("change cololor kik");
+
             this.gameObject.GetComponent<SpriteRenderer>().color = new Color(0.49f, 0.49f, 1, 1);
 
         }
         else if (Double)
         {
-            Debug.Log("change cololor doubole");
+
             this.gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 0.85f, 0.45f, 1);
 
         }
         else
         {
-            Debug.Log("change cololor sem cor ");
+ 
             this.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
         }
     }

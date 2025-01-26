@@ -129,11 +129,14 @@ public class LevelController : MonoBehaviour
     {
         while (true)
         {
-            if (vignette != null)
+            if (vignette != null && vignette.intensity.value<0.5f)
             {
-                vignette.intensity.value += increaseSpeed * Time.deltaTime;
-                vignette.intensity.value = Mathf.Clamp(vignette.intensity.value, 0, maxIntensity);
+               
+                vignette.intensity.value += increaseSpeed * blocksSpawned;
+                //vignette.intensity.value = Mathf.Clamp(vignette.intensity.value, 0, maxIntensity);
                 Debug.Log(vignette.intensity.value);
+                if (vignette.intensity.value > 0.5f)
+                    vignette.intensity.value = 0.5f;
             }
             if (GameController.Instance.State == GameController.GameState.Game)
             {

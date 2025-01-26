@@ -18,7 +18,7 @@ public class StoreView : MonoBehaviour
     private Vector3 _storeItensInitialPosition, _descriptionsInitialPosition, _bequerInitialPosition, _startInitialPosition,_tableInitialPos;
     void Start()
     {
-        PlayerPrefs.DeleteAll();
+        
         Instance = this;
 
         _storeItensInitialPosition = _storeItensContainer.anchoredPosition;
@@ -91,6 +91,7 @@ public class StoreView : MonoBehaviour
 
     public void BackStoreButtons()
     {
+        StoreCanva.SetActive(true);
         float duration = 1f; // Duração de cada animação
         float delayBetween = 0.2f; // Atraso entre os elementos
 
