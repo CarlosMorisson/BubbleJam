@@ -41,7 +41,8 @@ public class StoreController : MonoBehaviour
     }
     public void VerifyToMonetize(int bubbleCount)
     {
-        playerCoins += bubbleCount / 2;
+        playerCoins += bubbleCount;
+        StoreView.Instance.ActualizeValue(playerCoins);
     }
     public void BuyItem(int itemIndex)
     {
