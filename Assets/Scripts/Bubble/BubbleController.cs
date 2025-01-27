@@ -52,25 +52,27 @@ public class BubbleController : MonoBehaviour
         return activeBubbleCount;
     }
 
-    public int GetActiveBubbleCount()
+    public int GetActiveBubbleCount(bool isDamage)
     {
         if (bubblesParent == null)
         {
             Debug.LogError("Bubbles Parent não foi encontrado!");
             return 0; // Retorna 0 em caso de erro
         }
-        if (CountActiveBubbles() <= 0)
+        if (isDamage)
         {
-            if (BossModel.Instance == null || BossModel.Instance.bossLife > 0)
+            if (CountActiveBubbles() <= 0)
             {
-                GameController.Instance.GetGameState(GameController.GameState.End);
-            }
-            else if (BossModel.Instance.bossLife <= 0)
-            {
-                GameController.Instance.GetGameState(GameController.GameState.Victory);
+                if (BossModel.Instance == null || BossModel.Instance.bossLife > 0)
+                {
+                    GameController.Instance.GetGameState(GameController.GameState.End);
+                }
+                else if (BossModel.Instance.bossLife <= 0)
+                {
+                    GameController.Instance.GetGameState(GameController.GameState.Victory);
+                }
             }
         }
-            
         return CountActiveBubbles();
     }
     private void Awake()

@@ -35,7 +35,7 @@ public class DamageView : MonoBehaviour
 
     public void UpdateText()
     {
-        cont=BubbleController.Instance.GetActiveBubbleCount();
+        cont=BubbleController.Instance.GetActiveBubbleCount(true);
         m_Text.text = cont.ToString();
     }
     public void UpdateText(GameController.GameState state)

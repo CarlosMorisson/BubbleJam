@@ -161,7 +161,7 @@ public class LevelController : MonoBehaviour
                 {
                     Destroy(activeBlocks[i]);
                     activeBlocks.RemoveAt(i);
-                    StoreController.Instance.VerifyToMonetize(BubbleController.Instance.GetActiveBubbleCount());
+                    StoreController.Instance.VerifyToMonetize(BubbleController.Instance.GetActiveBubbleCount(false));
                 }
             }
         }
