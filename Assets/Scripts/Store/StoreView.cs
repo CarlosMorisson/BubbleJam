@@ -45,7 +45,7 @@ public class StoreView : MonoBehaviour
         else
         {
             _descriptionPanel.SetActive(false);
-            description.NEOBounceOut(duration: 0.3f);
+            description.localScale = Vector3.one;
         }
 
         _descriptionPanel.GetComponentInChildren<TextMeshProUGUI>().text = "<b> " + buy.skillName + " : </b>" + buy.Descrition;

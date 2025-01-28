@@ -82,14 +82,12 @@ public class BubbleController : MonoBehaviour
     void Start()
     {
         bubblesParent = GameObject.FindGameObjectWithTag("BubbleParent").transform;
-        BubblesProps(GameController.GameState.Game);
+        
     }
     public void BubblesProps(GameController.GameState state)
     {
-        
-        if (state== GameController.GameState.Game)
+        if (state == GameController.GameState.Game)
         {
-           
             if (bubblesParent != null)
             {
                 int bubbleCount = bubblesParent.childCount;
@@ -97,7 +95,7 @@ public class BubbleController : MonoBehaviour
                 activeBubbleCount = CountActiveBubbles();
                 for (int i = 0; i < bubbleCount; i++)
                 {
-                        bubbles[i] = bubblesParent.GetChild(i).gameObject;
+                    bubbles[i] = bubblesParent.GetChild(i).gameObject;
                     bubbles[i].GetComponent<BubbleCollider>().bubbleDamage = BubbleDamage;
 
                     bubbles[i].GetComponent<BubbleCollider>().Acid = acidBubble;
@@ -109,7 +107,6 @@ public class BubbleController : MonoBehaviour
             }
 
         }
-       
     }
     public void CheckUpgrades(string skillName, bool isPurchased)
     {

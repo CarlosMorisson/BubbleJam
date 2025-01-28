@@ -31,6 +31,7 @@ public class BubbleCollider : MonoBehaviour
     {
         imunity=true;
     }
+    
     private void OnEnable()
     {
 
@@ -48,12 +49,6 @@ public class BubbleCollider : MonoBehaviour
 
     public void ChangeCollor(GameController.GameState state)
     {
-   
-        if(state!=GameController.GameState.Game)
-        {
-            return;
-        }
-
         imunity = true;
 
       
@@ -89,7 +84,7 @@ public class BubbleCollider : MonoBehaviour
 
     private void Start()
     {
-
+        ChangeCollor(GameController.GameState.Game);
         rb = GetComponent<Rigidbody2D>();
         //Fazer com que novas bolhas nao sejam imediatamente destruidas quando ocorrer colisao
         StartCoroutine(EnableCollision());
