@@ -29,7 +29,7 @@ public class BubbleCollider : MonoBehaviour
 
     private void Awake()
     {
-        imunity=true;
+        imunity=false;
     }
     
     private void OnEnable()
@@ -49,7 +49,7 @@ public class BubbleCollider : MonoBehaviour
 
     public void ChangeCollor(GameController.GameState state)
     {
-        imunity = true;
+        imunity = false;
 
       
         if (Troy)
@@ -134,7 +134,7 @@ public class BubbleCollider : MonoBehaviour
             else if(Bounce)
             {
                 Bounce=false;
-                imunity = false;
+                imunity = true;
                 ChangeCollor(GameController.GameState.Game);
                 ImunityBubble();
                 direction= (this.transform.position*2) -( collision.transform.position*2);
@@ -185,10 +185,14 @@ public class BubbleCollider : MonoBehaviour
     }
     void  TakeDamage()
     {
-        if(imunity)
+        if(!imunity)
         {
-            DamageController.OnTakeDamage.Invoke();
-            this.gameObject.SetActive(false);
+            this.gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 0.55f, 0.55f,1);
+
+            this.gameObject.GetComponent<CircleCollider2D>().enabled=false;
+            rb.simulated=false;
+            StartCoroutine(WaitDamage());   
+            
 
         }
      
@@ -196,11 +200,24 @@ public class BubbleCollider : MonoBehaviour
       
       
     }
+    IEnumerator WaitDamage()
+    {
+
+        yield return new WaitForSeconds(0.2f);
+        this.gameObject.GetComponent<CircleCollider2D>().enabled = true;
+       // TimeController.OnKickTimeStop.Invoke();
+        rb.simulated = true; DamageController.OnTakeDamage.Invoke();
+          
+        this.gameObject.SetActive(false);
+
+    }
+
+
     IEnumerator TroyImpruvment()
     {
         Color cor;
         cor=this.gameObject.GetComponent<SpriteRenderer>().color;
-        this.gameObject.GetComponent<SpriteRenderer>().color=new Color(cor.r,cor.g,cor.b,0);
+        this.gameObject.GetComponent<SpriteRenderer>().color=new Color(cor.r,cor.g,cor.b,0.3f);
 
         yield return new WaitForEndOfFrame();
 
@@ -224,10 +241,10 @@ public class BubbleCollider : MonoBehaviour
     }
     IEnumerator Imunity()
     {
-        imunity = false;
+        imunity = true;
        
         yield return new WaitForSeconds(2);
-        imunity = true;
+        imunity = false;
 
     }
 
