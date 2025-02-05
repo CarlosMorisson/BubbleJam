@@ -1,7 +1,7 @@
 //using System;
 using System.Collections;
 using UnityEditor;
-using UnityEditor.SceneManagement;
+
 using UnityEngine;
 
 public class BubbleCollider : MonoBehaviour
@@ -29,12 +29,13 @@ public class BubbleCollider : MonoBehaviour
 
     private void Awake()
     {
-        imunity=true;
+        imunity=false;
     }
+    
     private void OnEnable()
     {
 
-        ChangeCollor(GameController.GameState.Game);
+       // ChangeCollor(GameController.GameState.Store);
 
         GameController.OnGameStateChanged += ChangeCollor;
 
@@ -48,13 +49,7 @@ public class BubbleCollider : MonoBehaviour
 
     public void ChangeCollor(GameController.GameState state)
     {
-   
-        if(state!=GameController.GameState.Game)
-        {
-            return;
-        }
-
-        imunity = true;
+        imunity = false;
 
       
         if (Troy)
@@ -89,7 +84,7 @@ public class BubbleCollider : MonoBehaviour
 
     private void Start()
     {
-       
+        ChangeCollor(GameController.GameState.Game);
         rb = GetComponent<Rigidbody2D>();
         //Fazer com que novas bolhas nao sejam imediatamente destruidas quando ocorrer colisao
         StartCoroutine(EnableCollision());
@@ -113,7 +108,8 @@ public class BubbleCollider : MonoBehaviour
             knockbackDirection.Normalize();
 
             rb.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
-        }else if (collision.CompareTag("Teleport"))
+        }
+        else if (collision.CompareTag("Teleport"))
         {
             collision.GetComponentInParent<WholeEffect>().TeleportPlayer(this.gameObject);
         }
@@ -138,7 +134,7 @@ public class BubbleCollider : MonoBehaviour
             else if(Bounce)
             {
                 Bounce=false;
-                imunity = false;
+                imunity = true;
                 ChangeCollor(GameController.GameState.Game);
                 ImunityBubble();
                 direction= (this.transform.position*2) -( collision.transform.position*2);
@@ -189,10 +185,14 @@ public class BubbleCollider : MonoBehaviour
     }
     void  TakeDamage()
     {
-        if(imunity)
+        if(!imunity)
         {
-            DamageController.OnTakeDamage.Invoke();
-            this.gameObject.SetActive(false);
+            this.gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 0.55f, 0.55f,1);
+
+            this.gameObject.GetComponent<CircleCollider2D>().enabled=false;
+            rb.simulated=false;
+            StartCoroutine(WaitDamage());   
+            
 
         }
      
@@ -200,11 +200,24 @@ public class BubbleCollider : MonoBehaviour
       
       
     }
+    IEnumerator WaitDamage()
+    {
+
+        yield return new WaitForSeconds(0.2f);
+        this.gameObject.GetComponent<CircleCollider2D>().enabled = true;
+       // TimeController.OnKickTimeStop.Invoke();
+        rb.simulated = true; DamageController.OnTakeDamage.Invoke();
+          
+        this.gameObject.SetActive(false);
+
+    }
+
+
     IEnumerator TroyImpruvment()
     {
         Color cor;
         cor=this.gameObject.GetComponent<SpriteRenderer>().color;
-        this.gameObject.GetComponent<SpriteRenderer>().color=new Color(cor.r,cor.g,cor.b,0);
+        this.gameObject.GetComponent<SpriteRenderer>().color=new Color(cor.r,cor.g,cor.b,0.3f);
 
         yield return new WaitForEndOfFrame();
 
@@ -228,10 +241,10 @@ public class BubbleCollider : MonoBehaviour
     }
     IEnumerator Imunity()
     {
-        imunity = false;
+        imunity = true;
        
         yield return new WaitForSeconds(2);
-        imunity = true;
+        imunity = false;
 
     }
 

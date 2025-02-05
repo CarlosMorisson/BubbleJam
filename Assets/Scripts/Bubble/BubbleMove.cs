@@ -1,15 +1,17 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BubbleMovement : MonoBehaviour
 {
     public static BubbleMovement Instance;
+
     private Transform bubblesParent;
-    private GameObject[] bubbles; // Array de bolhas
-    [Header("Position Parameters")] 
+    private List<GameObject> bubbles = new();
+    [Header("Initial Position Parameters")] 
     [SerializeField] private Vector2 randomRangeX = new Vector2(-5f, 5f); // Intervalo aleatório no eixo X
     [SerializeField] private float yDistance = 2f; // Distância fixa no eixo Y entre as bolhas
 
-    [Header("Bubble Parameters")]
+    [Header("Bubble Movement Parameters")]
     [SerializeField] [Range(0, 10)] private float baseSpeed = 5f; // Velocidade base
     [SerializeField] [Range(0, 50)] private float followRadius = 2f; // Raio de detecção de vizinhos
     [SerializeField] [Range(0, 10)] private float separationWeight = 2f; // Peso da separação
@@ -21,7 +23,47 @@ public class BubbleMovement : MonoBehaviour
     {
         Instance = this;
     }
-  
+    private void OnEnable()
+    {
+        // Encontrar o pai das bolhas e inicializar o array
+        GameController.OnGameStateChanged += HandleGameStateChange;
+    }
+    private void OnDisable()
+    {
+        GameController.OnGameStateChanged -= HandleGameStateChange;
+    }
+
+    private void Update()
+    {
+        MovimentacaoBolhas();
+    }
+
+    private void MovimentacaoBolhas()
+    {
+        // Obter a posição do mouse no mundo
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition.z = 0; // Garantir que as bolhas permaneçam no plano 2D
+        if (GameController.Instance.State != GameController.GameState.Game)
+            return;
+
+        foreach (GameObject bubble in bubbles)
+        {
+            if (!bubble.activeSelf) continue;
+
+            Vector3 followForce = FollowMouse(bubble, mousePosition);
+            Vector3 separation = Separation(bubble);
+
+            // Combinar forças
+            Vector3 totalForce = followForce + (separation * separationWeight);
+
+            // Limitar a força total
+            totalForce = Vector3.ClampMagnitude(totalForce, maxForce);
+
+            // Aplicar movimento
+            bubble.transform.position += totalForce * baseSpeed * Time.deltaTime;
+        }
+    }
+
     public void NewBubble()
     {
         bubblesParent = GameObject.FindGameObjectWithTag("BubbleParent").transform;
@@ -29,13 +71,13 @@ public class BubbleMovement : MonoBehaviour
         if (bubblesParent != null)
         {
             int bubbleCount = bubblesParent.childCount;
-            bubbles = new GameObject[bubbleCount];
+            List<GameObject> newBubbles = new();
 
             for (int i = 0; i < bubbleCount; i++)
             {
-                bubbles[i] = bubblesParent.GetChild(i).gameObject;
+                newBubbles.Add(bubblesParent.GetChild(i).gameObject);
             }
-         
+            bubbles = newBubbles;
         }
         else
         {
@@ -46,8 +88,6 @@ public class BubbleMovement : MonoBehaviour
     {
         if (newState == GameController.GameState.Game)
         {
-            
-            NewBubble();
             PositionBubbles();
         }
         else 
@@ -70,16 +110,14 @@ public class BubbleMovement : MonoBehaviour
 
         }
     }
-    private void Start()
-    {
-        // Encontrar o pai das bolhas e inicializar o array
-        GameController.OnGameStateChanged += HandleGameStateChange;
-    }
+    
     public void PositionBubbles()
     {
-        for (int i = 0; i < bubbles.Length; i++)
+        NewBubble();
+
+        for (int i = 0; i < bubbles.Count; i++)
         {
-            if (!bubbles[i].activeSelf) continue; // Ignorar bolhas inativas
+            if (bubbles[i] && !bubbles[i].activeSelf) continue; // Ignorar bolhas inativas
 
             Vector3 newPosition;
 
@@ -92,31 +130,7 @@ public class BubbleMovement : MonoBehaviour
             bubbles[i].transform.position = newPosition;
         }
     }
-    private void Update()
-    {
-        // Obter a posição do mouse no mundo
-        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePosition.z = 0; // Garantir que as bolhas permaneçam no plano 2D
-        if (GameController.GameState.Game != GameController.Instance.State)
-            return;
-        foreach (GameObject bubble in bubbles)
-        {
-            if (!bubble.activeSelf) continue;
-
-            Vector3 followForce = FollowMouse(bubble, mousePosition);
-            Vector3 separation = Separation(bubble);
-
-            // Combinar forças
-            Vector3 totalForce = followForce + (separation * separationWeight);
-
-            // Limitar a força total
-            totalForce = Vector3.ClampMagnitude(totalForce, maxForce);
-
-            // Aplicar movimento
-            bubble.transform.position += totalForce * baseSpeed * Time.deltaTime;
-        }
-    }
-
+    
     private Vector3 FollowMouse(GameObject bubble, Vector3 mousePosition)
     {
         // Vetor apontando para o mouse

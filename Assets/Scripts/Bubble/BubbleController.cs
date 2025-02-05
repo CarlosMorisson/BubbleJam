@@ -72,7 +72,9 @@ public class BubbleController : MonoBehaviour
                     GameController.Instance.GetGameState(GameController.GameState.Victory);
                 }
             }
+
         } 
+
         return CountActiveBubbles();
     }
     private void Awake()
@@ -81,14 +83,13 @@ public class BubbleController : MonoBehaviour
     }
     void Start()
     {
-        BubblesProps(GameController.GameState.Game);
+        bubblesParent = GameObject.FindGameObjectWithTag("BubbleParent").transform;
+        
     }
     public void BubblesProps(GameController.GameState state)
     {
-        
-        if (state== GameController.GameState.Game)
+        if (state == GameController.GameState.Game)
         {
-            bubblesParent = GameObject.FindGameObjectWithTag("BubbleParent").transform;
             if (bubblesParent != null)
             {
                 int bubbleCount = bubblesParent.childCount;
@@ -96,11 +97,7 @@ public class BubbleController : MonoBehaviour
                 activeBubbleCount = CountActiveBubbles();
                 for (int i = 0; i < bubbleCount; i++)
                 {
-                    //if (bubbles[i].name.Contains("Clone"))
-                    //{
-                    //    Destroy(bubbles[i]);    
-                    //}
-                        bubbles[i] = bubblesParent.GetChild(i).gameObject;
+                    bubbles[i] = bubblesParent.GetChild(i).gameObject;
                     bubbles[i].GetComponent<BubbleCollider>().bubbleDamage = BubbleDamage;
 
                     bubbles[i].GetComponent<BubbleCollider>().Acid = acidBubble;
@@ -112,7 +109,6 @@ public class BubbleController : MonoBehaviour
             }
 
         }
-       
     }
     public void CheckUpgrades(string skillName, bool isPurchased)
     {

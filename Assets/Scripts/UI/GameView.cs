@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using DG.Tweening;
+using NEO.UiAnimations;
 
 public class GameView : MonoBehaviour
 {
@@ -14,28 +15,52 @@ public class GameView : MonoBehaviour
     [SerializeField]
     private GameObject victoryGamePanel;
 
+    [SerializeField] private RectTransform _bubbleCount;
+    
     [SerializeField]
     private Image healthBarImage;
     void Start()
     {
         Instance = this;
+    }
+    private void OnEnable()
+    {
         GameController.OnGameStateChanged += LoadFinalGame;
     }
-    void Update()
+    private void OnDisable()
     {
-        
+        GameController.OnGameStateChanged -= LoadFinalGame;
     }
     public void LoadFinalGame(GameController.GameState newState)
     {
-        if (GameController.GameState.End == newState)
+        switch (newState)
         {
-            finalGamePanel.SetActive(true);
-            Debug.Log("Final Mostrado");
-        }
-        else if(GameController.GameState.Victory == newState)
-        {
-            victoryGamePanel.SetActive(true);
-        }
+            case GameController.GameState.Store:
+                finalGamePanel.SetActive(false);
+                victoryGamePanel.SetActive(false);
+                _bubbleCount.NEOFadeOut(duration: 0.1f);
+                break;
+
+            case GameController.GameState.Game:
+                finalGamePanel.SetActive(false);
+                victoryGamePanel.SetActive(false);
+                _bubbleCount.NEOFadeIn(duration: 0.1f);
+                break;
+
+            case GameController.GameState.End:
+                finalGamePanel.SetActive(true);
+                victoryGamePanel.SetActive(false);
+                _bubbleCount.NEOFadeOut(duration: 0.1f);
+                break;
+
+            case GameController.GameState.Victory:
+                victoryGamePanel.SetActive(true);
+                finalGamePanel.SetActive(false);
+                _bubbleCount.NEOFadeOut(duration: 0.1f);
+                break;
+            default:
+                break;
+        } 
     }
     public void SetHealth(float health, float maxHealth)
     {

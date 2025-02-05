@@ -27,6 +27,7 @@ public class StoreController : MonoBehaviour
             
             BubbleController.Instance.CheckUpgrades(buy.skillName, buy.isPurchased);
         }
+        BubbleController.Instance.BubblesProps(GameController.GameState.Game);
     }
 
     private void HandleGameStateChange(GameController.GameState newState)

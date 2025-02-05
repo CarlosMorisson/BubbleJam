@@ -38,18 +38,25 @@ public class WholeEffect : MonoBehaviour
     {
         if (player != null)
         {
-            player.SetActive(false);
+            player.gameObject.GetComponent <CircleCollider2D>().enabled = false;
+            Color color = player.gameObject.GetComponent<SpriteRenderer>().color;
+            color.a = 0;
+            player.gameObject.GetComponent<SpriteRenderer>().color=color;
             yield return new WaitForSeconds(teleportDelay);
 
             if (teleportTarget != null)
             {
                 player.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
-                player.SetActive(true);
+               
+               
+                color.a = 1;
+                player.gameObject.GetComponent<SpriteRenderer>().color = color;
                 yield return null;
                 //Precisa desse Random para as bolhas bugarem
                 float newX = Random.Range(randomRangeX.x, randomRangeX.y);
                 float newY = Random.Range(randomRangeY.x, randomRangeY.y);
                 player.transform.position = new Vector2(teleportTarget.position.x+newX, teleportTarget.position.y + newY);
+                player.gameObject.GetComponent<CircleCollider2D>().enabled = true;
             }
             else
             {
