@@ -72,7 +72,9 @@ public class BubbleController : MonoBehaviour
                     GameController.Instance.GetGameState(GameController.GameState.Victory);
                 }
             }
-        }
+
+        } 
+
         return CountActiveBubbles();
     }
     private void Awake()

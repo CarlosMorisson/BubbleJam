@@ -50,9 +50,9 @@ public class LevelController : MonoBehaviour
 
     [Header("Post Process Control")]
     [SerializeField]
-    public PostProcessVolume volume; // Referência ao volume de pós-processamento
+    public PostProcessVolume volume; // ReferÃªncia ao volume de pÃ³s-processamento
     [SerializeField]
-    public float maxIntensity = 0.8f; // Intensidade máxima da vinheta
+    public float maxIntensity = 0.8f; // Intensidade mÃ¡xima da vinheta
     [SerializeField]
     public float increaseSpeed = 0.1f; // Velocidade de aumento da intensidade
     [SerializeField]
@@ -114,7 +114,7 @@ public class LevelController : MonoBehaviour
         }
         if (specialBlockPrefab == null)
         {
-            Debug.LogError("Prefab do bloco especial não atribuído!");
+            Debug.LogError("Prefab do bloco especial nÃ£o atribuÃ­do!");
             return;
         }
 
@@ -152,17 +152,16 @@ public class LevelController : MonoBehaviour
 
     void Update()
     {
-        // Verifica se os blocos saíram da tela e os destrói
+        // Verifica se os blocos saÃ­ram da tela e os destrÃ³i
         if(activeBlocks.Capacity>0)
         {
             for (int i = activeBlocks.Count - 1; i >= 0; i--)
             {
-                if (activeBlocks[i].transform.position.y < despawnY || specialBlockSpawned)
-                {
-                    Destroy(activeBlocks[i]);
-                    activeBlocks.RemoveAt(i);
-                    StoreController.Instance.VerifyToMonetize(BubbleController.Instance.GetActiveBubbleCount(false));
-                }
+
+                Destroy(activeBlocks[i]);
+                activeBlocks.RemoveAt(i);
+                StoreController.Instance.VerifyToMonetize(BubbleController.Instance.GetActiveBubbleCount(false));
+
             }
         }
         
