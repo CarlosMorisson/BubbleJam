@@ -27,9 +27,9 @@ public class BubbleInstance : MonoBehaviour
     }
 
 
-    public void BubbleInstace(Transform position)
+    public void BubbleInstace(Transform position, int num)
     {
-        for (int i = 0; i < BUBLES_TO_INSTANTIATE; i++)
+        for (int i = 0; i < num; i++)
         {
             float newX = Random.Range(-1, 1);
             float newY = Random.Range(-1, 1);
