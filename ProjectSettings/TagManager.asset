@@ -11,6 +11,7 @@ TagManager:
   - Attraction
   - Damage
   - Enemy
+  - 5Bubbles
   layers:
   - Default
   - TransparentFX
