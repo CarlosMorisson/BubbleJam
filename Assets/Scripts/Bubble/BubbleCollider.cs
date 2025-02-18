@@ -99,9 +99,16 @@ public class BubbleCollider : MonoBehaviour
     #region Colliders
     private void OnTriggerEnter2D(Collider2D collision)
     {
-     
-        // Verifica se o objeto que entrou no trigger tem a tag "Fan"
-        if (collision.CompareTag("Fan"))
+
+        if (collision.CompareTag("5Bubbles"))
+        {
+            FiveBooble();
+            collision.gameObject.SetActive(false);
+
+        }
+
+            // Verifica se o objeto que entrou no trigger tem a tag "Fan"
+            if (collision.CompareTag("Fan"))
         {
             // Calcula a direção *contrária* ao centro do collider do "Fan"
             Vector2 knockbackDirection = transform.position - collision.transform.position;
@@ -251,11 +258,18 @@ public class BubbleCollider : MonoBehaviour
     void DoubleBooble()
     {
        
-        BubbleInstance.Instance.BubbleInstace(this.gameObject.transform);
+        BubbleInstance.Instance.BubbleInstace(this.gameObject.transform,2);
        
         this.gameObject.SetActive(false);
 
 
+
+    }
+
+    void FiveBooble()
+    {
+
+        BubbleInstance.Instance.BubbleInstace(this.gameObject.transform, 5);
 
     }
 

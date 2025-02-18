@@ -153,18 +153,19 @@ public class LevelController : MonoBehaviour
     void Update()
     {
         // Verifica se os blocos saíram da tela e os destrói
-        if(activeBlocks.Capacity>0)
+        if (activeBlocks.Capacity > 0)
         {
             for (int i = activeBlocks.Count - 1; i >= 0; i--)
             {
-
-                Destroy(activeBlocks[i]);
-                activeBlocks.RemoveAt(i);
-                StoreController.Instance.VerifyToMonetize(BubbleController.Instance.GetActiveBubbleCount(false));
-
+                if (activeBlocks[i].transform.position.y < despawnY || specialBlockSpawned)
+                {
+                    Destroy(activeBlocks[i]);
+                    activeBlocks.RemoveAt(i);
+                    StoreController.Instance.VerifyToMonetize(BubbleController.Instance.GetActiveBubbleCount(false));
+                }
             }
         }
-        
+
     }
 
     void SpawnBlock()
