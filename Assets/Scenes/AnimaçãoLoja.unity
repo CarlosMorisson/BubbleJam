@@ -9706,7 +9706,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30e88f3f2e8bd9c4db845d32c17f675c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blockPrefabs: []
+  themes:
+  - themeName: Verao
+    normalBlocksFolder: Normal
+    challengeBlocksFolder: Desafio
+  - themeName: Inverno
+    normalBlocksFolder: Normal
+    challengeBlocksFolder: Desafio
+  currentThemeIndex: 0
   specialBlockPrefab: {fileID: 2061055033}
   specialBlockSpawnInterval: 119
   randomRangeX: {x: -5, y: 5}
@@ -9721,6 +9728,12 @@ MonoBehaviour:
   maxIntensity: 0.5
   increaseSpeed: 0.01
   vignette: {fileID: 0}
+  activeBlocks: []
+  normalBlocksPool: []
+  challengeBlocksPool: []
+  usedNormalBlocks: []
+  usedChallengeBlocks: []
+  difficultyCounter: 0
 --- !u!1 &1038361264
 GameObject:
   m_ObjectHideFlags: 0

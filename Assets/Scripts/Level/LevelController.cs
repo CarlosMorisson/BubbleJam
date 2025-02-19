@@ -3,12 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
+[System.Serializable]
+public class Theme
+{
+    public string themeName;
+    public string normalBlocksFolder;
+    public string challengeBlocksFolder;
+}
 public class LevelController : MonoBehaviour
 {
-    [Header("Obstacles Configuration")]
+    [Header("Themes Configuration")]
     [SerializeField]
-    private List<GameObject> blockPrefabs = new List<GameObject>();
+    private List<Theme> themes = new List<Theme>();
 
+    [SerializeField]
+    private int currentThemeIndex = 0;
+
+    [Header("Obstacles Configuration")]
     [SerializeField]
     private GameObject specialBlockPrefab;
 
@@ -50,17 +61,28 @@ public class LevelController : MonoBehaviour
 
     [Header("Post Process Control")]
     [SerializeField]
-    public PostProcessVolume volume; // Referência ao volume de pós-processamento
+    public PostProcessVolume volume;
+
     [SerializeField]
-    public float maxIntensity = 0.8f; // Intensidade máxima da vinheta
+    public float maxIntensity = 0.8f;
+
     [SerializeField]
-    public float increaseSpeed = 0.1f; // Velocidade de aumento da intensidade
+    public float increaseSpeed = 0.1f;
+
     [SerializeField]
     private Vignette vignette;
 
     private float timeSinceLastSpawn = 0f;
 
     private List<GameObject> activeBlocks = new List<GameObject>();
+    private List<GameObject> normalBlocksPool = new List<GameObject>();
+    private List<GameObject> challengeBlocksPool = new List<GameObject>();
+    private List<GameObject> usedNormalBlocks = new List<GameObject>();
+    private List<GameObject> usedChallengeBlocks = new List<GameObject>();
+
+    [SerializeField]
+    [Range(0,18)]
+    private int difficultyCounter = 0;
 
     private void OnEnable()
     {
@@ -92,13 +114,13 @@ public class LevelController : MonoBehaviour
             if (volume != null)
             {
                 volume.profile.TryGetSettings(out vignette);
-                vignette.intensity.value =0;
+                vignette.intensity.value = 0;
             }
             activeBlocks.Clear();
             specialBlockSpawned = false;
             blocksSpawned = 0;
             currentSpeed = initialSpeed;
-            timeSinceLastSpawn = 0; // Reseta o timer de spawn
+            timeSinceLastSpawn = 0;
             Debug.Log("LevelController desativado.");
         }
     }
@@ -107,11 +129,8 @@ public class LevelController : MonoBehaviour
     {
         currentSpeed = initialSpeed;
         blockParent = GameObject.FindGameObjectWithTag("ObstaclesParent").transform;
-        Object[] loadedPrefabs = Resources.LoadAll("Blocos", typeof(GameObject));
-        foreach (Object prefab in loadedPrefabs)
-        {
-            blockPrefabs.Add((GameObject)prefab);
-        }
+        LoadBlocksForCurrentTheme();
+
         if (specialBlockPrefab == null)
         {
             Debug.LogError("Prefab do bloco especial não atribuído!");
@@ -125,16 +144,38 @@ public class LevelController : MonoBehaviour
         StartCoroutine(SpawnBlockCoroutine());
     }
 
+    private void LoadBlocksForCurrentTheme()
+    {
+        Theme currentTheme = themes[currentThemeIndex];
+        normalBlocksPool.Clear();
+        challengeBlocksPool.Clear();
+        usedNormalBlocks.Clear();
+        usedChallengeBlocks.Clear();
+
+        string normalFolderPath = $"{currentTheme.themeName}/{currentTheme.normalBlocksFolder}";
+        string challengeFolderPath = $"{currentTheme.themeName}/{currentTheme.challengeBlocksFolder}";
+
+        Object[] loadedNormalPrefabs = Resources.LoadAll(normalFolderPath, typeof(GameObject));
+        Debug.Log(currentTheme.normalBlocksFolder);
+        foreach (Object prefab in loadedNormalPrefabs)
+        {
+            normalBlocksPool.Add((GameObject)prefab);
+        }
+
+        Object[] loadedChallengePrefabs = Resources.LoadAll(challengeFolderPath, typeof(GameObject));
+        foreach (Object prefab in loadedChallengePrefabs)
+        {
+            challengeBlocksPool.Add((GameObject)prefab);
+        }
+    }
+
     private IEnumerator SpawnBlockCoroutine()
     {
         while (true)
         {
-            if (vignette != null && vignette.intensity.value<0.5f)
+            if (vignette != null && vignette.intensity.value < 0.5f)
             {
-               
                 vignette.intensity.value += increaseSpeed * blocksSpawned;
-                //vignette.intensity.value = Mathf.Clamp(vignette.intensity.value, 0, maxIntensity);
-                Debug.Log(vignette.intensity.value);
                 if (vignette.intensity.value > 0.5f)
                     vignette.intensity.value = 0.5f;
             }
@@ -152,7 +193,6 @@ public class LevelController : MonoBehaviour
 
     void Update()
     {
-        // Verifica se os blocos saíram da tela e os destrói
         if (activeBlocks.Capacity > 0)
         {
             for (int i = activeBlocks.Count - 1; i >= 0; i--)
@@ -165,42 +205,88 @@ public class LevelController : MonoBehaviour
                 }
             }
         }
-
     }
 
     void SpawnBlock()
     {
-        if (blockPrefabs.Count == 0)
-        {
-            Debug.LogError("Nenhum prefab de bloco encontrado na pasta Resources/Blocos!");
-            return;
-        }
-
         GameObject newBlock;
 
         if (blocksSpawned >= specialBlockSpawnInterval && !specialBlockSpawned)
         {
             specialBlockPrefab.SetActive(true);
-            
             specialBlockSpawned = true;
         }
         else
         {
-            int randomIndex = Random.Range(0, blockPrefabs.Count);
-            GameObject selectedPrefab = blockPrefabs[randomIndex];
+            if (difficultyCounter > 0 && challengeBlocksPool.Count > 0)
+            {
+                newBlock = GetChallengeBlock();
+            }
+            else
+            {
+                newBlock = GetNormalBlock();
+            }
 
-            newBlock = Instantiate(selectedPrefab, blockParent);
             newBlock.transform.position = new Vector3(0, spawnY, 0);
             newBlock.GetComponent<ObstacleMovemment>().Speed = ObstacleAcceleration();
             blocksSpawned++;
             activeBlocks.Add(newBlock);
         }
-        
+    }
+
+    private GameObject GetNormalBlock()
+    {
+        if (normalBlocksPool.Count == 0)
+        {
+            normalBlocksPool.AddRange(usedNormalBlocks);
+            usedNormalBlocks.Clear();
+        }
+
+        int randomIndex = Random.Range(0, normalBlocksPool.Count);
+        GameObject selectedBlock = normalBlocksPool[randomIndex];
+        normalBlocksPool.RemoveAt(randomIndex);
+        usedNormalBlocks.Add(selectedBlock);
+
+        return Instantiate(selectedBlock, blockParent);
+    }
+
+    private GameObject GetChallengeBlock()
+    {
+        if (challengeBlocksPool.Count == 0)
+        {
+            challengeBlocksPool.AddRange(usedChallengeBlocks);
+            usedChallengeBlocks.Clear();
+        }
+
+        int randomIndex = Random.Range(0, challengeBlocksPool.Count);
+        GameObject selectedBlock = challengeBlocksPool[randomIndex];
+        challengeBlocksPool.RemoveAt(randomIndex);
+        usedChallengeBlocks.Add(selectedBlock);
+
+        return Instantiate(selectedBlock, blockParent);
     }
 
     private float ObstacleAcceleration()
     {
         currentSpeed = Mathf.Min(currentSpeed + accelerationRate * Time.deltaTime, maxSpeed);
         return currentSpeed;
+    }
+
+    public void IncreaseDifficulty()
+    {
+        difficultyCounter++;
+    }
+
+    public void SetTheme(int themeIndex)
+    {
+        if (themeIndex >= 0 && themeIndex < themes.Count)
+        {
+            currentThemeIndex = themeIndex;
+            LoadBlocksForCurrentTheme();
+        }
+        else
+        {
+            Debug.LogError("Índice de tema inválido!");
+        }
     }
 }
