@@ -9713,7 +9713,7 @@ MonoBehaviour:
   - themeName: Inverno
     normalBlocksFolder: Normal
     challengeBlocksFolder: Desafio
-  currentThemeIndex: 0
+  currentThemeIndex: 1
   specialBlockPrefab: {fileID: 2061055033}
   specialBlockSpawnInterval: 119
   randomRangeX: {x: -5, y: 5}
@@ -9728,11 +9728,6 @@ MonoBehaviour:
   maxIntensity: 0.5
   increaseSpeed: 0.01
   vignette: {fileID: 0}
-  activeBlocks: []
-  normalBlocksPool: []
-  challengeBlocksPool: []
-  usedNormalBlocks: []
-  usedChallengeBlocks: []
   difficultyCounter: 0
 --- !u!1 &1038361264
 GameObject:
