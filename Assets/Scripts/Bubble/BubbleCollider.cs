@@ -141,9 +141,9 @@ public class BubbleCollider : MonoBehaviour
             else if(Bounce)
             {
                 Bounce=false;
-                imunity = true;
-                ChangeCollor(GameController.GameState.Game);
                 ImunityBubble();
+                ChangeCollor(GameController.GameState.Game);
+               
                 direction= (this.transform.position*2) -( collision.transform.position*2);
                 rb.AddForce(direction.normalized*10, ForceMode2D.Impulse);
                 StartCoroutine(BaouceFluid());
@@ -239,7 +239,7 @@ public class BubbleCollider : MonoBehaviour
 
     public void ImunityBubble()
     {
-        if (imunity)
+        if (!imunity)
         {
           
             StartCoroutine(Imunity());

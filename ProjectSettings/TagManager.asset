@@ -12,6 +12,7 @@ TagManager:
   - Damage
   - Enemy
   - 5Bubbles
+  - Collect
   layers:
   - Default
   - TransparentFX
