@@ -18,7 +18,7 @@ public class BubbleCollider : MonoBehaviour
     private float collisionTimer = 2;
     public float bubbleDamage { private get; set; }
     [Header("Bubble improvement")]
-    public bool Acid, Double, Troy, Bounce;
+    public bool Acid, Double, Troy, Bounce,Alawakbar;
 
     public bool imunity;
     private Vector3 direction;
@@ -30,6 +30,7 @@ public class BubbleCollider : MonoBehaviour
     private void Awake()
     {
         imunity=false;
+        Alawakbar = false;
     }
     
     private void OnEnable()
@@ -122,6 +123,14 @@ public class BubbleCollider : MonoBehaviour
         }
         else if (collision.CompareTag("Damage"))
         {
+
+            if(Alawakbar)
+            {
+                collision.gameObject.SetActive(false);
+                Alawakbar = false;
+                return;
+            }
+            Debug.Log("alawakbar");
             if(Troy)
             {
                 Troy = false;
