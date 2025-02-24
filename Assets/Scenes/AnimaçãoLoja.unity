@@ -9717,13 +9717,13 @@ MonoBehaviour:
   specialBlockPrefab: {fileID: 2061055033}
   specialBlockSpawnInterval: 119
   randomRangeX: {x: -5, y: 5}
-  spawnY: 10
+  spawnY: 20
   despawnY: -30
   initialBlocks: 1
   initialSpeed: 1
   accelerationRate: 20
   maxSpeed: 3
-  timeBetweenSpawns: 10
+  timeBetweenSpawns: 25
   volume: {fileID: 352021693}
   maxIntensity: 0.5
   increaseSpeed: 0.01
