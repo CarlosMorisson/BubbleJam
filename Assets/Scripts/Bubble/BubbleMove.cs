@@ -137,7 +137,7 @@ public class BubbleMovement : MonoBehaviour
         Vector3 directionToMouse = mousePosition - bubble.transform.position;
 
         // Checar se a bolha está dentro do raio para seguir o mouse
-        if (directionToMouse.magnitude < followRadius)
+        if (directionToMouse.magnitude < followRadius && directionToMouse.magnitude > speedTolerance)
         {
             directionToMouse.Normalize();
             return directionToMouse;
@@ -161,7 +161,7 @@ public class BubbleMovement : MonoBehaviour
                 // Vetor apontando para longe do vizinho
                 Vector3 diff = bubble.transform.position - other.transform.position;
                 diff.Normalize();
-                if(distance>0)
+                if(distance>0.01f)
                     diff /= distance; // Ponderar pela distância
                 steer += diff;
                 count++;

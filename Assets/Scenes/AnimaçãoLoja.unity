@@ -7072,7 +7072,7 @@ MonoBehaviour:
   separationWeight: 0.41
   avoidanceRadius: 1
   maxForce: 3.67
-  speedTolerance: 0.5
+  speedTolerance: 0.01
 --- !u!114 &513902588
 MonoBehaviour:
   m_ObjectHideFlags: 0
